@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar u{2014} ApplyAi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="dashboard-layout" style="display:flex;flex-direction:row;min-height:100vh;background:#F7F8FA;font-family:'DM Sans',sans-serif;">
+
+<aside style="position:fixed;top:0;left:0;bottom:0;width:240px;background:#0F172A;display:flex;flex-direction:column;z-index:300;overflow:hidden;font-family:'DM Sans',sans-serif;">
+  <a href="dashboard.html" style="height:64px;min-height:64px;padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:inherit;">
+    <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(37,99,235,0.5),0 4px 12px rgba(37,99,235,0.35);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+    </div>
+    <span style="font-size:15px;font-weight:700;color:#F8FAFC;letter-spacing:-0.3px;">ApplyAi</span>
+  </a>
+  <div style="flex:1;overflow-y:auto;padding:16px 10px 8px;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:0 8px;margin-bottom:6px;">Menu</div>
+    <a href="dashboard.html" id="snav-dashboard" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;">Dashboard</span>
+    </a>
+    <a href="university.html" id="snav-universities" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
+      <span style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+    </a>
+    <a href="tracker.html" id="snav-tracker" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
+      <span style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+    </a>
+    <a href="calendar.html" id="snav-calendar" class="snav-item snav-on" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
+      <span style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+    </a>
+    <a href="internship.html" id="snav-internships" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;">Internships</span>
+    </a>
+    <div style="height:1px;background:rgba(255,255,255,0.07);margin:14px 4px 10px;"></div>
+    <a href="learn.html" id="snav-learn" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;">Learn</span>
+    </a>
+    <a href="ai-advisor.html" id="snav-advisor" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;background:rgba(37,99,235,0.14);color:#93C5FD;text-decoration:none;" onmouseover="this.style.background='rgba(37,99,235,0.22)';" onmouseout="this.style.background='rgba(37,99,235,0.14)';">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(37,99,235,0.35);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <span style="font-size:13.5px;font-weight:600;color:#93C5FD;flex:1;">AI Advisor</span>
+      <span style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#4ADE80;white-space:nowrap;"><span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;display:inline-block;"></span>Live</span>
+    </a>
+    <a href="settings.html" id="snav-settings" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+      <span style="font-size:13.5px;font-weight:500;">Settings</span>
+    </a>
+  </div>
+  <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
+    <a href="../auth/login.html" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.09)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+      <div style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">S</div>
+      <div style="flex:1;overflow:hidden;">
+        <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot; China</div>
+      </div>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+</aside>
+
+
+  <!-- ── MAIN AREA ── -->
+  <div style="margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;overflow:hidden;">
+
+    <!-- ══ HEADER ══ -->
+    <div style="padding:24px 32px 0;display:flex;flex-direction:column;gap:20px;border-bottom:1px solid #E6E8EC;background:#F8F9FB;">
+
+      <!-- Row 1: Title + Actions -->
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h1 style="font-size:22px;font-weight:700;color:#111;letter-spacing:-0.5px;margin:0 0 2px;">Calendar</h1>
+          <p style="font-size:13px;color:#888;margin:0;">Your application schedule at a glance</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <!-- Sync Google -->
+          <button onclick="showToast('Google Calendar sync coming soon')" style="display:flex;align-items:center;gap:7px;padding:9px 16px;border-radius:10px;border:1.5px solid #E6E8EC;background:white;font-size:13px;font-weight:500;color:#555;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#E6E8EC'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Sync Google
+          </button>
+          <!-- Add Event -->
+          <button onclick="openEventModal()" style="display:flex;align-items:center;gap:7px;padding:9px 18px;border-radius:10px;border:none;background:#111;color:white;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Event
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 2: Month nav + View toggle -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;">
+        <!-- Month navigation -->
+        <div style="display:flex;align-items:center;gap:4px;">
+          <button id="cal-prev" onclick="calNav(-1)" style="width:32px;height:32px;border-radius:8px;border:1.5px solid #E6E8EC;background:white;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#E6E8EC'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div id="cal-month-label" style="font-size:16px;font-weight:700;color:#111;letter-spacing:-0.3px;padding:0 16px;min-width:160px;text-align:center;">March 2026</div>
+          <button id="cal-next" onclick="calNav(1)" style="width:32px;height:32px;border-radius:8px;border:1.5px solid #E6E8EC;background:white;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s;" onmouseover="this.style.borderColor='#111'" onmouseout="this.style.borderColor='#E6E8EC'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <button onclick="goToday()" style="margin-left:8px;padding:7px 14px;border-radius:8px;border:1.5px solid #E6E8EC;background:white;font-size:13px;font-weight:500;color:#333;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='white'">Today</button>
+        </div>
+        <!-- View switcher -->
+        <div style="display:flex;background:white;border:1.5px solid #E6E8EC;border-radius:10px;padding:3px;gap:2px;">
+          <button id="vbtn-day" onclick="setCalView('day')" style="padding:6px 14px;border-radius:8px;border:none;font-size:12.5px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;background:transparent;color:#777;">Day</button>
+          <button id="vbtn-week" onclick="setCalView('week')" style="padding:6px 14px;border-radius:8px;border:none;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;background:#111;color:white;">Week</button>
+          <button id="vbtn-month" onclick="setCalView('month')" style="padding:6px 14px;border-radius:8px;border:none;font-size:12.5px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;background:transparent;color:#777;">Month</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BODY ══ -->
+    <div style="display:flex;flex:1;overflow:hidden;">
+
+      <!-- ── LEFT PANEL: Mini Calendar + Filters ── -->
+      <div style="width:240px;flex-shrink:0;padding:24px 20px;border-right:1px solid #E6E8EC;background:#F8F9FB;overflow-y:auto;display:flex;flex-direction:column;gap:24px;">
+
+        <!-- Mini Calendar -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span id="mini-month-label" style="font-size:13px;font-weight:700;color:#111;">March 2026</span>
+            <div style="display:flex;gap:2px;">
+              <button onclick="calNav(-1)" style="width:22px;height:22px;border-radius:5px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='transparent'"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button onclick="calNav(1)" style="width:22px;height:22px;border-radius:5px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='transparent'"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+          <!-- Day headers -->
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:0;margin-bottom:4px;">
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Mo</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Tu</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">We</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Th</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Fr</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Sa</div>
+            <div style="text-align:center;font-size:10px;font-weight:600;color:#aaa;padding:2px 0;">Su</div>
+          </div>
+          <!-- Day cells — generated by JS -->
+          <div id="mini-cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;"></div>
+        </div>
+
+        <!-- Divider -->
+        <div style="height:1px;background:#E6E8EC;"></div>
+
+        <!-- My Schedule filters -->
+        <div>
+          <div style="font-size:11px;font-weight:700;color:#aaa;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:12px;">My Schedule</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:7px 8px;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background=''">
+              <input type="checkbox" checked onchange="filterCalendar()" data-cat="application" style="display:none;">
+              <div class="cal-check" data-checked="1" onclick="toggleCalFilter(this)" style="width:14px;height:14px;border-radius:4px;background:#FECACA;border:1.5px solid #F87171;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:#333;font-weight:500;">Application Deadlines</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:#EF4444;margin-left:auto;flex-shrink:0;"></div>
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:7px 8px;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background=''">
+              <div class="cal-check" data-checked="1" onclick="toggleCalFilter(this)" style="width:14px;height:14px;border-radius:4px;background:#D1FAE5;border:1.5px solid #6EE7B7;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:#333;font-weight:500;">Interviews</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:#10B981;margin-left:auto;flex-shrink:0;"></div>
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:7px 8px;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background=''">
+              <div class="cal-check" data-checked="1" onclick="toggleCalFilter(this)" style="width:14px;height:14px;border-radius:4px;background:#FEF3C7;border:1.5px solid #FCD34D;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:#333;font-weight:500;">Scholarship Deadlines</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:#F59E0B;margin-left:auto;flex-shrink:0;"></div>
+            </label>
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:7px 8px;border-radius:8px;transition:background 0.15s;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background=''">
+              <div class="cal-check" data-checked="1" onclick="toggleCalFilter(this)" style="width:14px;height:14px;border-radius:4px;background:#DBEAFE;border:1.5px solid #93C5FD;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+                <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:13px;color:#333;font-weight:500;">Exams</span>
+              <div style="width:7px;height:7px;border-radius:50%;background:#3B82F6;margin-left:auto;flex-shrink:0;"></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- AI Optimizer -->
+        <div style="background:#0F172A;border-radius:12px;padding:16px;cursor:pointer;transition:opacity 0.15s;" onclick="showToast('AI Schedule Optimizer coming soon')" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span style="font-size:10px;font-weight:700;color:#60A5FA;letter-spacing:0.6px;text-transform:uppercase;">AI Optimizer</span>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.7);margin:0 0 10px;line-height:1.5;">Let AI plan your optimal study & application schedule</p>
+          <div style="font-size:12px;font-weight:600;color:white;display:flex;align-items:center;gap:5px;">Optimize my week <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+
+      </div><!-- /left panel -->
+
+      <!-- ── CENTER: Week/Day/Month View ── -->
+      <div style="flex:1;display:flex;flex-direction:column;overflow:hidden;">
+
+        <!-- Week view -->
+        <div id="cal-week-view" style="flex:1;overflow-y:auto;overflow-x:auto;">
+
+          <!-- Day header row -->
+          <div style="display:grid;grid-template-columns:64px repeat(7,1fr);border-bottom:1px solid #E6E8EC;background:white;position:sticky;top:0;z-index:10;min-width:700px;">
+            <div style="border-right:1px solid #E6E8EC;"></div>
+            <div id="wh-mon" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Mon</div>
+              <div style="font-size:20px;font-weight:700;color:#111;line-height:1.2;margin-top:2px;">16</div>
+            </div>
+            <div id="wh-tue" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Tue</div>
+              <div style="font-size:20px;font-weight:700;color:#111;line-height:1.2;margin-top:2px;">17</div>
+            </div>
+            <div id="wh-wed" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;background:#F0F7FF;">
+              <div style="font-size:10px;font-weight:600;color:#2563EB;text-transform:uppercase;letter-spacing:0.5px;">Wed</div>
+              <div style="font-size:20px;font-weight:800;color:#2563EB;line-height:1.2;margin-top:2px;">18</div>
+              <div style="width:5px;height:5px;border-radius:50%;background:#2563EB;margin:3px auto 0;"></div>
+            </div>
+            <div id="wh-thu" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Thu</div>
+              <div style="font-size:20px;font-weight:700;color:#111;line-height:1.2;margin-top:2px;">19</div>
+            </div>
+            <div id="wh-fri" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Fri</div>
+              <div style="font-size:20px;font-weight:700;color:#111;line-height:1.2;margin-top:2px;">20</div>
+            </div>
+            <div id="wh-sat" style="padding:12px 8px;text-align:center;border-right:1px solid #E6E8EC;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Sat</div>
+              <div style="font-size:20px;font-weight:700;color:#bbb;line-height:1.2;margin-top:2px;">21</div>
+            </div>
+            <div id="wh-sun" style="padding:12px 8px;text-align:center;">
+              <div style="font-size:10px;font-weight:600;color:#aaa;text-transform:uppercase;letter-spacing:0.5px;">Sun</div>
+              <div style="font-size:20px;font-weight:700;color:#bbb;line-height:1.2;margin-top:2px;">22</div>
+            </div>
+          </div>
+
+          <!-- Time grid -->
+          <div style="display:grid;grid-template-columns:64px repeat(7,1fr);min-width:700px;position:relative;">
+
+            <!-- Time labels + rows -->
+            <!-- 8am -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">8 AM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- Oxford Interview -->
+              <div onclick="showToast('Oxford Interview — 8:00 AM')" style="position:absolute;top:6px;left:4px;right:4px;background:#D1FAE5;border-left:3px solid #10B981;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(16,185,129,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.4px;">Interview</div>
+                <div style="font-size:11px;font-weight:600;color:#065F46;margin-top:1px;line-height:1.3;">Oxford University</div>
+                <div style="font-size:10px;color:#6EE7B7;margin-top:2px;">8:00 – 9:30 AM</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 9am -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">9 AM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 10am -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">10 AM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- Scholarship essay -->
+              <div onclick="showToast('Scholarship Essay — Mon 10:00')" style="position:absolute;top:6px;left:4px;right:4px;background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(245,158,11,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:0.4px;">Scholarship</div>
+                <div style="font-size:11px;font-weight:600;color:#92400E;margin-top:1px;line-height:1.3;">Essay Draft</div>
+                <div style="font-size:10px;color:#FCD34D;margin-top:2px;">10:00 – 12:00</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 11am -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">11 AM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- Peking doc review -->
+              <div onclick="showToast('Peking University — Document Review')" style="position:absolute;top:6px;left:4px;right:4px;background:#FEE2E2;border-left:3px solid #EF4444;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(239,68,68,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:0.4px;">Application</div>
+                <div style="font-size:11px;font-weight:600;color:#7F1D1D;margin-top:1px;line-height:1.3;">Peking Univ. Docs</div>
+                <div style="font-size:10px;color:#FCA5A5;margin-top:2px;">11:30 – 13:00</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 12pm -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">12 PM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 1pm -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">1 PM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;position:relative;"><!-- Interview prep (today) -->
+              <div onclick="showToast('Interview Prep — Today 1:00 PM')" style="position:absolute;top:6px;left:4px;right:4px;background:#D1FAE5;border-left:3px solid #10B981;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(16,185,129,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:0.4px;">Interview Prep</div>
+                <div style="font-size:11px;font-weight:600;color:#065F46;margin-top:1px;line-height:1.3;">Mock Interview</div>
+                <div style="font-size:10px;color:#6EE7B7;margin-top:2px;">13:00 – 14:30</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- Tsinghua prep -->
+              <div onclick="showToast('Tsinghua CSC Prep')" style="position:absolute;top:6px;left:4px;right:4px;background:#FEE2E2;border-left:3px solid #EF4444;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(239,68,68,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:0.4px;">Application</div>
+                <div style="font-size:11px;font-weight:600;color:#7F1D1D;margin-top:1px;line-height:1.3;">Tsinghua CSC</div>
+                <div style="font-size:10px;color:#FCA5A5;margin-top:2px;">13:00 – 14:00</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 2pm -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">2 PM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- IELTS prep -->
+              <div onclick="showToast('IELTS Exam Prep')" style="position:absolute;top:6px;left:4px;right:4px;background:#DBEAFE;border-left:3px solid #3B82F6;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(59,130,246,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:0.4px;">Exam</div>
+                <div style="font-size:11px;font-weight:600;color:#1E3A8A;margin-top:1px;line-height:1.3;">IELTS Practice</div>
+                <div style="font-size:10px;color:#93C5FD;margin-top:2px;">14:00 – 16:00</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 3pm -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">3 PM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;position:relative;"><!-- SOP writing -->
+              <div onclick="showToast('SOP Writing Session')" style="position:absolute;top:6px;left:4px;right:4px;background:#FEF3C7;border-left:3px solid #F59E0B;border-radius:0 8px 8px 0;padding:6px 8px;cursor:pointer;z-index:2;transition:all 0.15s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(245,158,11,0.2)'" onmouseout="this.style.boxShadow=''">
+                <div style="font-size:10px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:0.4px;">Scholarship</div>
+                <div style="font-size:11px;font-weight:600;color:#92400E;margin-top:1px;line-height:1.3;">SOP Writing</div>
+                <div style="font-size:10px;color:#FCD34D;margin-top:2px;">15:00 – 17:00</div>
+              </div>
+            </div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+            <!-- 4pm -->
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;padding:8px 10px 0;text-align:right;"><span style="font-size:10px;color:#bbb;font-weight:500;">4 PM</span></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;background:#F9FAFB;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-right:1px solid #E6E8EC;border-bottom:1px solid #f0f0f0;height:72px;"></div>
+            <div style="border-bottom:1px solid #f0f0f0;height:72px;"></div>
+
+          </div><!-- /time grid -->
+        </div><!-- /week view -->
+
+      </div><!-- /center -->
+
+      <!-- ── RIGHT PANEL: Upcoming Deadlines ── -->
+      <div style="width:260px;flex-shrink:0;border-left:1px solid #E6E8EC;background:#F8F9FB;overflow-y:auto;padding:20px;">
+
+        <div style="font-size:13px;font-weight:700;color:#111;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
+          Upcoming Deadlines
+          <span style="font-size:10px;font-weight:600;background:#FEE2E2;color:#DC2626;padding:2px 8px;border-radius:999px;">4</span>
+        </div>
+
+        <!-- Deadline cards -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <div onclick="showToast('Tsinghua CSC — 12 days')" style="background:white;border:1px solid #E6E8EC;border-radius:12px;padding:14px;cursor:pointer;transition:all 0.15s;box-shadow:0 2px 8px rgba(0,0,0,0.04);" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.transform=''">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#EF4444;margin-top:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:12.5px;font-weight:700;color:#111;margin-bottom:2px;">Tsinghua University</div>
+                <div style="font-size:11px;color:#888;margin-bottom:6px;">Application Deadline</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:11px;font-weight:600;color:#EF4444;">March 30</span>
+                  <span style="font-size:10px;font-weight:600;background:#FEE2E2;color:#DC2626;padding:2px 8px;border-radius:6px;">12 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div onclick="showToast('Peking University — 18 days')" style="background:white;border:1px solid #E6E8EC;border-radius:12px;padding:14px;cursor:pointer;transition:all 0.15s;box-shadow:0 2px 8px rgba(0,0,0,0.04);" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.transform=''">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;margin-top:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:12.5px;font-weight:700;color:#111;margin-bottom:2px;">Peking University</div>
+                <div style="font-size:11px;color:#888;margin-bottom:6px;">Scholarship Deadline</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:11px;font-weight:600;color:#D97706;">April 5</span>
+                  <span style="font-size:10px;font-weight:600;background:#FEF3C7;color:#D97706;padding:2px 8px;border-radius:6px;">18 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div onclick="showToast('TU Berlin DAAD — 33 days')" style="background:white;border:1px solid #E6E8EC;border-radius:12px;padding:14px;cursor:pointer;transition:all 0.15s;box-shadow:0 2px 8px rgba(0,0,0,0.04);" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.transform=''">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#10B981;margin-top:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:12.5px;font-weight:700;color:#111;margin-bottom:2px;">TU Berlin</div>
+                <div style="font-size:11px;color:#888;margin-bottom:6px;">DAAD Application</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:11px;font-weight:600;color:#059669;">April 20</span>
+                  <span style="font-size:10px;font-weight:600;background:#D1FAE5;color:#059669;padding:2px 8px;border-radius:6px;">33 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div onclick="showToast('IELTS Exam')" style="background:white;border:1px solid #E6E8EC;border-radius:12px;padding:14px;cursor:pointer;transition:all 0.15s;box-shadow:0 2px 8px rgba(0,0,0,0.04);" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,0,0,0.04)';this.style.transform=''">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#3B82F6;margin-top:4px;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-size:12.5px;font-weight:700;color:#111;margin-bottom:2px;">IELTS Exam</div>
+                <div style="font-size:11px;color:#888;margin-bottom:6px;">Language Proficiency</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <span style="font-size:11px;font-weight:600;color:#2563EB;">April 12</span>
+                  <span style="font-size:10px;font-weight:600;background:#DBEAFE;color:#2563EB;padding:2px 8px;border-radius:6px;">25 days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /deadline cards -->
+
+        <!-- AI auto-add tip -->
+        <div style="margin-top:20px;padding:14px;background:#F0F7FF;border:1px solid #DBEAFE;border-radius:12px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <span style="font-size:10px;font-weight:700;color:#2563EB;letter-spacing:0.4px;text-transform:uppercase;">AI Auto-Detect</span>
+          </div>
+          <p style="font-size:11.5px;color:#555;line-height:1.5;margin:0;">Save a university in Explorer and ApplyAI automatically adds its deadlines to your calendar.</p>
+        </div>
+
+      </div><!-- /right panel -->
+
+    </div><!-- /body -->
+
+  </div><!-- /main area -->
+
+
+<div class="toast" id="toast" style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
+  <span id="toast-icon" style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+  <span id="toast-msg">Done!</span>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

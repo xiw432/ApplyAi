@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn u{2014} ApplyAi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body class="dashboard-layout"
+  style="display:flex;flex-direction:row;min-height:100vh;background:#F7F8FA;font-family:'DM Sans',sans-serif;">
+
+  <aside
+    style="position:fixed;top:0;left:0;bottom:0;width:240px;background:#0F172A;display:flex;flex-direction:column;z-index:300;overflow:hidden;font-family:'DM Sans',sans-serif;">
+    <a href="dashboard.html"
+      style="height:64px;min-height:64px;padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:inherit;">
+      <div
+        style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(37,99,235,0.5),0 4px 12px rgba(37,99,235,0.35);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      </div>
+      <span style="font-size:15px;font-weight:700;color:#F8FAFC;letter-spacing:-0.3px;">ApplyAi</span>
+    </a>
+    <div style="flex:1;overflow-y:auto;padding:16px 10px 8px;">
+      <div
+        style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:0 8px;margin-bottom:6px;">
+        Menu</div>
+      <a href="dashboard.html" id="snav-dashboard" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Dashboard</span>
+      </a>
+      <a href="university.html" id="snav-universities" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+      </a>
+      <a href="tracker.html" id="snav-tracker" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <line x1="9" y1="9" x2="15" y2="9" />
+            <line x1="9" y1="12" x2="15" y2="12" />
+            <line x1="9" y1="15" x2="13" y2="15" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+      </a>
+      <a href="calendar.html" id="snav-calendar" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+      </a>
+      <a href="internship.html" id="snav-internships" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Internships</span>
+      </a>
+      <div style="height:1px;background:rgba(255,255,255,0.07);margin:14px 4px 10px;"></div>
+      <a href="learn.html" id="snav-learn" class="snav-item snav-on"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Learn</span>
+      </a>
+      <a href="ai-advisor.html" id="snav-advisor" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;background:rgba(37,99,235,0.14);color:#93C5FD;text-decoration:none;"
+        onmouseover="this.style.background='rgba(37,99,235,0.22)';"
+        onmouseout="this.style.background='rgba(37,99,235,0.14)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(37,99,235,0.35);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:600;color:#93C5FD;flex:1;">AI Advisor</span>
+        <span
+          style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#4ADE80;white-space:nowrap;"><span
+            style="width:5px;height:5px;border-radius:50%;background:#4ADE80;display:inline-block;"></span>Live</span>
+      </a>
+      <a href="settings.html" id="snav-settings" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Settings</span>
+      </a>
+    </div>
+    <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
+      <a href="../auth/login.html"
+        style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.09)'"
+        onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+        <div
+          style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">
+          S</div>
+        <div style="flex:1;overflow:hidden;">
+          <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot;
+            China</div>
+        </div>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+
+  <!-- LEARN MAIN -->
+  <div style="margin-left:240px;width:calc(100% - 240px);overflow-y:auto;background:#F5F6FA;min-height:100vh;">
+    <div style="padding:40px 44px 80px;">
+
+      <!-- HEADER -->
+      <div style="margin-bottom:40px;">
+        <div
+          style="display:inline-flex;align-items:center;gap:7px;background:rgba(79,70,229,0.08);border:1px solid rgba(79,70,229,0.18);border-radius:100px;padding:4px 13px 4px 9px;margin-bottom:16px;">
+          <div
+            style="width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#4F46E5,#6366F1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
+          </div>
+          <span style="font-size:11.5px;font-weight:600;color:#4F46E5;letter-spacing:0.3px;">Knowledge Hub</span>
+        </div>
+        <div
+          style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:20px;">
+          <div>
+            <h1
+              style="font-size:32px;font-weight:800;color:#0F172A;letter-spacing:-0.8px;margin:0 0 8px;line-height:1.15;">
+              Learn &amp; Prepare</h1>
+            <p style="font-size:14.5px;color:#64748B;margin:0;line-height:1.65;max-width:460px;">Guides, videos and
+              resources to master every step of studying abroad.</p>
+          </div>
+          <button onclick="window.location.href='ai-advisor.html'"
+            style="display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;background:linear-gradient(135deg,#4F46E5,#6366F1);border:none;font-size:13px;font-weight:700;color:white;cursor:pointer;font-family:inherit;box-shadow:0 4px 16px rgba(79,70,229,0.3);white-space:nowrap;flex-shrink:0;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+            </svg>
+            Ask AI Advisor
+          </button>
+        </div>
+        <!-- Stat pills -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <div
+            style="display:flex;align-items:center;gap:8px;background:white;border:1px solid #E2E8F0;border-radius:10px;padding:9px 15px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+            </svg>
+            <span style="font-size:12.5px;font-weight:600;color:#374151;">24 Guides</span>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;background:white;border:1px solid #E2E8F0;border-radius:10px;padding:9px 15px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+            <span style="font-size:12.5px;font-weight:600;color:#374151;">12 Videos</span>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;background:white;border:1px solid #E2E8F0;border-radius:10px;padding:9px 15px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <span style="font-size:12.5px;font-weight:600;color:#374151;">48 Quick Tips</span>
+          </div>
+          <div
+            style="display:flex;align-items:center;gap:8px;background:white;border:1px solid #E2E8F0;border-radius:10px;padding:9px 15px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            <span style="font-size:12.5px;font-weight:600;color:#374151;">8 Downloads</span>
+          </div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div style="margin-top:24px;position:relative;max-width:520px;">
+          <svg style="position:absolute;left:16px;top:50%;transform:translateY(-50%);pointer-events:none;" width="16"
+            height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" id="learn-search" placeholder="Search guides, tutorials and resources..."
+            style="width:100%;padding:12px 16px 12px 44px;border-radius:12px;border:1.5px solid #E2E8F0;background:white;font-size:14px;color:#0F172A;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;box-sizing:border-box;"
+            onfocus="this.style.borderColor='#6366F1';this.style.boxShadow='0 0 0 3px rgba(99,102,241,0.1)'"
+            onblur="this.style.borderColor='#E2E8F0';this.style.boxShadow='none'">
+        </div>
+
+        <!-- CATEGORY FILTERS -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;">
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:#4F46E5;color:white;border:1.5px solid #4F46E5;box-shadow:0 2px 8px rgba(79,70,229,0.25);">All</button>
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:white;color:#374151;border:1.5px solid #E2E8F0;"
+            onmouseover="this.style.borderColor='#6366F1';this.style.color='#4F46E5';this.style.background='rgba(99,102,241,0.04)'"
+            onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#374151';this.style.background='white'">Universities</button>
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:white;color:#374151;border:1.5px solid #E2E8F0;"
+            onmouseover="this.style.borderColor='#0D9488';this.style.color='#0D9488';this.style.background='rgba(20,184,166,0.04)'"
+            onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#374151';this.style.background='white'">Visa</button>
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:white;color:#374151;border:1.5px solid #E2E8F0;"
+            onmouseover="this.style.borderColor='#059669';this.style.color='#059669';this.style.background='rgba(16,185,129,0.04)'"
+            onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#374151';this.style.background='white'">Scholarships</button>
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:white;color:#374151;border:1.5px solid #E2E8F0;"
+            onmouseover="this.style.borderColor='#2563EB';this.style.color='#2563EB';this.style.background='rgba(37,99,235,0.04)'"
+            onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#374151';this.style.background='white'">Applications</button>
+          <button
+            style="padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;background:white;color:#374151;border:1.5px solid #E2E8F0;"
+            onmouseover="this.style.borderColor='#DC2626';this.style.color='#DC2626';this.style.background='rgba(239,68,68,0.04)'"
+            onmouseout="this.style.borderColor='#E2E8F0';this.style.color='#374151';this.style.background='white'">Writing</button>
+        </div>
+      </div>
+
+      <!-- SECTION 1: POPULAR GUIDES -->
+      <div style="margin-bottom:48px;">
+        <!-- Section divider -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <div
+            style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.18);flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+            </svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.3px;margin-bottom:2px;">Popular
+              Guides</div>
+            <div style="font-size:13px;color:#94A3B8;">Structured reading for every stage of your application</div>
+          </div>
+          <button onclick="showToast('All guides coming soon')"
+            style="font-size:13px;font-weight:600;color:#6366F1;background:none;border:none;cursor:pointer;font-family:inherit;"
+            onmouseover="this.style.color='#4F46E5'" onmouseout="this.style.color='#6366F1'">View all →</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+
+          <!-- Guide 1 -->
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:18px;padding:26px;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(99,102,241,0.12)';this.style.borderColor='rgba(99,102,241,0.3)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(99,102,241,0.07),transparent 70%);pointer-events:none;">
+            </div>
+            <div
+              style="width:46px;height:46px;border-radius:13px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg>
+            </div>
+            <div
+              style="font-size:10px;font-weight:700;color:#6366F1;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.15);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:11px;letter-spacing:0.5px;">
+              UNIVERSITY</div>
+            <div
+              style="font-size:15.5px;font-weight:700;color:#0F172A;margin-bottom:8px;line-height:1.35;letter-spacing:-0.2px;">
+              How to Choose the Right University</div>
+            <div style="font-size:13px;color:#64748B;line-height:1.65;margin-bottom:20px;">Compare rankings, programs,
+              costs and culture to find your ideal match across 80+ countries.</div>
+            <!-- Progress indicator -->
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;"><span
+                  style="font-size:11px;font-weight:600;color:#64748B;">Progress</span><span
+                  style="font-size:11px;font-weight:700;color:#6366F1;">25%</span></div>
+              <div style="height:4px;background:#EEF2FF;border-radius:3px;overflow:hidden;">
+                <div style="width:25%;height:100%;background:linear-gradient(90deg,#6366F1,#818CF8);border-radius:3px;">
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:11.5px;color:#94A3B8;">8 min read</span>
+              <button onclick="showToast('Opening guide...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:9px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);font-size:12px;font-weight:700;color:#4F46E5;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(99,102,241,0.18)'"
+                onmouseout="this.style.background='rgba(99,102,241,0.1)'">Continue →</button>
+            </div>
+          </div>
+
+          <!-- Guide 2 — FEATURED -->
+          <div
+            style="background:linear-gradient(145deg,#EEF2FF,#E0E7FF);border:1px solid rgba(99,102,241,0.25);border-radius:18px;padding:26px;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 4px 20px rgba(99,102,241,0.12);transition:transform .2s,box-shadow .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 50px rgba(79,70,229,0.2)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(99,102,241,0.12)'">
+            <div
+              style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4F46E5,#818CF8,#A78BFA);border-radius:18px 18px 0 0;">
+            </div>
+            <div
+              style="position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(99,102,241,0.12),transparent 70%);pointer-events:none;">
+            </div>
+            <div
+              style="width:46px;height:46px;border-radius:13px;background:rgba(79,70,229,0.15);border:1px solid rgba(79,70,229,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div
+              style="font-size:10px;font-weight:700;color:#D97706;background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:11px;letter-spacing:0.5px;">
+              ★ MOST POPULAR</div>
+            <div
+              style="font-size:15.5px;font-weight:700;color:#1E1B4B;margin-bottom:8px;line-height:1.35;letter-spacing:-0.2px;">
+              Writing a Strong Statement of Purpose</div>
+            <div style="font-size:13px;color:#4338CA;line-height:1.65;margin-bottom:20px;opacity:0.75;">Craft a
+              compelling SOP that tells your unique story and impresses admissions worldwide.</div>
+            <!-- Progress indicator -->
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;"><span
+                  style="font-size:11px;font-weight:600;color:#4338CA;">Progress</span><span
+                  style="font-size:11px;font-weight:700;color:#4F46E5;">60%</span></div>
+              <div style="height:4px;background:rgba(79,70,229,0.15);border-radius:3px;overflow:hidden;">
+                <div style="width:60%;height:100%;background:linear-gradient(90deg,#4F46E5,#818CF8);border-radius:3px;">
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:11.5px;color:#6366F1;opacity:0.7;">12 min read</span>
+              <button onclick="showToast('Opening SOP guide...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:9px;background:#4F46E5;border:none;font-size:12px;font-weight:700;color:white;cursor:pointer;font-family:inherit;box-shadow:0 3px 10px rgba(79,70,229,0.35);transition:box-shadow .15s;"
+                onmouseover="this.style.boxShadow='0 5px 16px rgba(79,70,229,0.5)'"
+                onmouseout="this.style.boxShadow='0 3px 10px rgba(79,70,229,0.35)'">Continue →</button>
+            </div>
+          </div>
+
+          <!-- Guide 3 -->
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:18px;padding:26px;position:relative;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(20,184,166,0.1)';this.style.borderColor='rgba(20,184,166,0.3)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(20,184,166,0.07),transparent 70%);pointer-events:none;">
+            </div>
+            <div
+              style="width:46px;height:46px;border-radius:13px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+            </div>
+            <div
+              style="font-size:10px;font-weight:700;color:#0D9488;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.18);border-radius:5px;display:inline-block;padding:2px 9px;margin-bottom:11px;letter-spacing:0.5px;">
+              VISA</div>
+            <div
+              style="font-size:15.5px;font-weight:700;color:#0F172A;margin-bottom:8px;line-height:1.35;letter-spacing:-0.2px;">
+              Visa Application Guide</div>
+            <div style="font-size:13px;color:#64748B;line-height:1.65;margin-bottom:20px;">Complete checklist, document
+              prep and interview tips for 12+ countries' student visas.</div>
+            <!-- Progress indicator -->
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;"><span
+                  style="font-size:11px;font-weight:600;color:#64748B;">Progress</span><span
+                  style="font-size:11px;font-weight:700;color:#0D9488;">Not started</span></div>
+              <div style="height:4px;background:rgba(20,184,166,0.1);border-radius:3px;overflow:hidden;">
+                <div style="width:0%;height:100%;background:linear-gradient(90deg,#14B8A6,#2DD4BF);border-radius:3px;">
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-size:11.5px;color:#94A3B8;">10 min read</span>
+              <button onclick="showToast('Opening visa guide...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:9px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.22);font-size:12px;font-weight:700;color:#0D9488;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(20,184,166,0.18)'"
+                onmouseout="this.style.background='rgba(20,184,166,0.1)'">Start Guide →</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SECTION 2: VIDEO TUTORIALS -->
+      <div style="margin-bottom:48px;">
+        <!-- Section divider -->
+        <div style="height:1px;background:linear-gradient(90deg,#E2E8F0,transparent);margin-bottom:28px;"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <div
+            style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.18);flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.3px;margin-bottom:2px;">Video
+              Tutorials</div>
+            <div style="font-size:13px;color:#94A3B8;">Watch and learn at your own pace</div>
+          </div>
+          <button onclick="showToast('All videos coming soon')"
+            style="font-size:13px;font-weight:600;color:#10B981;background:none;border:none;cursor:pointer;font-family:inherit;"
+            onmouseover="this.style.color='#059669'" onmouseout="this.style.color='#10B981'">View all →</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+
+          <!-- Video 1 -->
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform .2s,box-shadow .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)'">
+            <div
+              style="position:relative;height:148px;background:linear-gradient(135deg,#1E1B4B,#312E81);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+              <div
+                style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(99,102,241,0.5),transparent 60%);">
+              </div>
+              <svg style="position:absolute;opacity:0.2;left:14px;bottom:6px;" width="88" height="70"
+                viewBox="0 0 88 70" fill="none">
+                <rect x="4" y="26" width="80" height="40" rx="2" stroke="white" stroke-width="1.5" />
+                <path d="M44 6L4 26h80L44 6z" stroke="white" stroke-width="1.5" />
+                <rect x="26" y="38" width="12" height="28" rx="1" fill="rgba(255,255,255,0.2)" />
+                <rect x="50" y="38" width="12" height="28" rx="1" fill="rgba(255,255,255,0.2)" />
+              </svg>
+              <button onclick="showToast('Playing: Application Process Explained')"
+                style="position:relative;z-index:2;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px);"
+                onmouseover="this.style.background='rgba(255,255,255,0.95)';this.style.transform='scale(1.1)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.2)';this.style.transform=''">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#4F46E5" style="margin-left:2px;">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </button>
+              <div
+                style="position:absolute;bottom:9px;right:9px;background:rgba(0,0,0,0.6);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:700;color:white;">
+                18:24</div>
+            </div>
+            <div style="padding:16px 18px 18px;">
+              <div
+                style="font-size:10px;font-weight:700;color:#6366F1;background:rgba(99,102,241,0.08);border-radius:5px;display:inline-block;padding:2px 8px;margin-bottom:9px;letter-spacing:0.4px;">
+                APPLICATION</div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.3;">Application
+                Process Explained</div>
+              <div style="font-size:12.5px;color:#94A3B8;">Complete walkthrough · 2.4k views</div>
+            </div>
+          </div>
+
+          <!-- Video 2 -->
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform .2s,box-shadow .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)'">
+            <div
+              style="position:relative;height:148px;background:linear-gradient(135deg,#064E3B,#065F46);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+              <div
+                style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(16,185,129,0.45),transparent 60%);">
+              </div>
+              <svg style="position:absolute;opacity:0.2;left:14px;bottom:6px;" width="88" height="88"
+                viewBox="0 0 88 88" fill="none">
+                <circle cx="44" cy="44" r="30" stroke="white" stroke-width="1.5" />
+                <path d="M44 18v52M18 44h52" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="44" cy="44" r="10" fill="rgba(255,255,255,0.15)" stroke="white" stroke-width="1.5" />
+              </svg>
+              <button onclick="showToast('Playing: Scholarship Strategies')"
+                style="position:relative;z-index:2;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px);"
+                onmouseover="this.style.background='rgba(255,255,255,0.95)';this.style.transform='scale(1.1)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.2)';this.style.transform=''">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#059669" style="margin-left:2px;">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </button>
+              <div
+                style="position:absolute;bottom:9px;right:9px;background:rgba(0,0,0,0.6);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:700;color:white;">
+                24:10</div>
+            </div>
+            <div style="padding:16px 18px 18px;">
+              <div
+                style="font-size:10px;font-weight:700;color:#059669;background:rgba(16,185,129,0.08);border-radius:5px;display:inline-block;padding:2px 8px;margin-bottom:9px;letter-spacing:0.4px;">
+                SCHOLARSHIP</div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.3;">Scholarship
+                Strategies That Work</div>
+              <div style="font-size:12.5px;color:#94A3B8;">Win DAAD, Fulbright &amp; more · 3.1k views</div>
+            </div>
+          </div>
+
+          <!-- Video 3 -->
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform .2s,box-shadow .2s;"
+            onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 40px rgba(0,0,0,0.1)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.05)'">
+            <div
+              style="position:relative;height:148px;background:linear-gradient(135deg,#7F1D1D,#991B1B);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+              <div
+                style="position:absolute;inset:0;background:radial-gradient(ellipse at 40% 60%,rgba(239,68,68,0.4),transparent 60%);">
+              </div>
+              <svg style="position:absolute;opacity:0.2;left:14px;bottom:0;" width="88" height="88" viewBox="0 0 88 88"
+                fill="none">
+                <path d="M10 86V32l34-22 34 22v54" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                <rect x="28" y="48" width="13" height="38" rx="1" fill="rgba(255,255,255,0.15)" stroke="white"
+                  stroke-width="1.2" />
+                <rect x="47" y="48" width="13" height="38" rx="1" fill="rgba(255,255,255,0.15)" stroke="white"
+                  stroke-width="1.2" />
+              </svg>
+              <button onclick="showToast('Playing: How to Write SOP')"
+                style="position:relative;z-index:2;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px);"
+                onmouseover="this.style.background='rgba(255,255,255,0.95)';this.style.transform='scale(1.1)'"
+                onmouseout="this.style.background='rgba(255,255,255,0.2)';this.style.transform=''">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#DC2626" style="margin-left:2px;">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </button>
+              <div
+                style="position:absolute;bottom:9px;right:9px;background:rgba(0,0,0,0.6);border-radius:5px;padding:3px 8px;font-size:11px;font-weight:700;color:white;">
+                31:05</div>
+            </div>
+            <div style="padding:16px 18px 18px;">
+              <div
+                style="font-size:10px;font-weight:700;color:#DC2626;background:rgba(239,68,68,0.08);border-radius:5px;display:inline-block;padding:2px 8px;margin-bottom:9px;letter-spacing:0.4px;">
+                WRITING</div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.3;">How to
+                Write a Powerful SOP</div>
+              <div style="font-size:12.5px;color:#94A3B8;">Live workshop with examples · 1.8k views</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SECTION 3: QUICK TIPS -->
+      <div style="margin-bottom:48px;">
+        <!-- Section divider -->
+        <div style="height:1px;background:linear-gradient(90deg,#E2E8F0,transparent);margin-bottom:28px;"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <div
+            style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.18);flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.3px;margin-bottom:2px;">Quick
+              Tips</div>
+            <div style="font-size:13px;color:#94A3B8;">Bite-sized insights to sharpen your preparation</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:13px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;">
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(99,102,241,0.1)';this.style.borderColor='rgba(99,102,241,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">IELTS
+              Preparation</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Daily routines and strategies
+              to boost your band score.</div>
+            <div style="font-size:11px;font-weight:600;color:#6366F1;">5 min read</div>
+          </div>
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(245,158,11,0.1)';this.style.borderColor='rgba(245,158,11,0.3)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">Resume
+              Building</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Format and tailor your CV for
+              US, EU and Asian universities.</div>
+            <div style="font-size:11px;font-weight:600;color:#D97706;">4 min read</div>
+          </div>
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(16,185,129,0.1)';this.style.borderColor='rgba(16,185,129,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">Strong
+              Profile Tips</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Complete every section and
+              upload docs to reach 100% score.</div>
+            <div style="font-size:11px;font-weight:600;color:#059669;">3 min read</div>
+          </div>
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(59,130,246,0.1)';this.style.borderColor='rgba(59,130,246,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                <path d="M16 3.13a4 4 0 010 7.75" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">Networking
+              Strategies</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Connect with alumni and
+              professors before you apply.</div>
+            <div style="font-size:11px;font-weight:600;color:#2563EB;">5 min read</div>
+          </div>
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(236,72,153,0.1)';this.style.borderColor='rgba(236,72,153,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DB2777" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">Interview
+              Prep</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Common questions and body
+              language tips for panels.</div>
+            <div style="font-size:11px;font-weight:600;color:#DB2777;">6 min read</div>
+          </div>
+
+          <div
+            style="flex-shrink:0;width:208px;background:white;border:1px solid #E8ECF4;border-radius:14px;padding:20px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(251,146,60,0.1)';this.style.borderColor='rgba(251,146,60,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:38px;height:38px;border-radius:10px;background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg>
+            </div>
+            <div style="font-size:13.5px;font-weight:700;color:#0F172A;margin-bottom:6px;line-height:1.3;">
+              Recommendation Letters</div>
+            <div style="font-size:12px;color:#64748B;line-height:1.6;margin-bottom:11px;">Who to ask and how to follow
+              up gracefully.</div>
+            <div style="font-size:11px;font-weight:600;color:#EA580C;">4 min read</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SECTION 4: RESOURCES -->
+      <div>
+        <!-- Section divider -->
+        <div style="height:1px;background:linear-gradient(90deg,#E2E8F0,transparent);margin-bottom:28px;"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <div
+            style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.18);flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:18px;font-weight:800;color:#0F172A;letter-spacing:-0.3px;margin-bottom:2px;">Resources
+            </div>
+            <div style="font-size:13px;color:#94A3B8;">Ready-to-use templates and checklists</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;">
+
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(99,102,241,0.1)';this.style.borderColor='rgba(99,102,241,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:44px;height:44px;border-radius:12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;color:#6366F1;letter-spacing:0.5px;margin-bottom:4px;">TEMPLATE
+              </div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.25;">SOP
+                Template</div>
+              <div style="font-size:12px;color:#64748B;line-height:1.5;">Professionally structured SOP with inline
+                guidelines.</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:11px;color:#94A3B8;">DOCX · 24 KB</span>
+              <button onclick="showToast('Downloading SOP Template...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);font-size:11.5px;font-weight:700;color:#4F46E5;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(99,102,241,0.18)'"
+                onmouseout="this.style.background='rgba(99,102,241,0.1)'">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(16,185,129,0.1)';this.style.borderColor='rgba(16,185,129,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:44px;height:44px;border-radius:12px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="9" y1="21" x2="9" y2="9" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;color:#059669;letter-spacing:0.5px;margin-bottom:4px;">TEMPLATE
+              </div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.25;">Resume
+                Template</div>
+              <div style="font-size:12px;color:#64748B;line-height:1.5;">ATS-friendly layout for international
+                applicants.</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:11px;color:#94A3B8;">DOCX · 18 KB</span>
+              <button onclick="showToast('Downloading Resume Template...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);font-size:11.5px;font-weight:700;color:#059669;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(16,185,129,0.18)'"
+                onmouseout="this.style.background='rgba(16,185,129,0.1)'">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(59,130,246,0.1)';this.style.borderColor='rgba(59,130,246,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:44px;height:44px;border-radius:12px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 11 12 14 22 4" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;color:#2563EB;letter-spacing:0.5px;margin-bottom:4px;">
+                CHECKLIST</div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.25;">Visa
+                Checklist</div>
+              <div style="font-size:12px;color:#64748B;line-height:1.5;">Documents for 12+ countries' student visas.
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:11px;color:#94A3B8;">PDF · 12 KB</span>
+              <button onclick="showToast('Downloading Visa Checklist...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);font-size:11.5px;font-weight:700;color:#2563EB;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(59,130,246,0.18)'"
+                onmouseout="this.style.background='rgba(59,130,246,0.1)'">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="background:white;border:1px solid #E8ECF4;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.04);transition:transform .2s,box-shadow .2s,border-color .2s;"
+            onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 28px rgba(245,158,11,0.1)';this.style.borderColor='rgba(245,158,11,0.25)'"
+            onmouseout="this.style.transform='';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.04)';this.style.borderColor='#E8ECF4'">
+            <div
+              style="width:44px;height:44px;border-radius:12px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="1.7"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <line x1="3" y1="6" x2="3.01" y2="6" />
+                <line x1="3" y1="12" x2="3.01" y2="12" />
+                <line x1="3" y1="18" x2="3.01" y2="18" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;color:#D97706;letter-spacing:0.5px;margin-bottom:4px;">
+                CHECKLIST</div>
+              <div style="font-size:14.5px;font-weight:700;color:#0F172A;margin-bottom:4px;line-height:1.25;">
+                Application Checklist</div>
+              <div style="font-size:12px;color:#64748B;line-height:1.5;">Track your entire application journey step by
+                step.</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;">
+              <span style="font-size:11px;color:#94A3B8;">PDF · 10 KB</span>
+              <button onclick="showToast('Downloading Application Checklist...')"
+                style="display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:8px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);font-size:11.5px;font-weight:700;color:#D97706;cursor:pointer;font-family:inherit;transition:background .15s;"
+                onmouseover="this.style.background='rgba(245,158,11,0.18)'"
+                onmouseout="this.style.background='rgba(245,158,11,0.1)'">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"
+    style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
+    <span id="toast-icon"
+      style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg
+        width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"
+        stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12" />
+      </svg></span>
+    <span id="toast-msg">Done!</span>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — ApplyAi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <style>
+    .stg-bg {
+      margin-left: 240px;
+      width: calc(100% - 240px);
+      min-height: 100vh;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      position: relative;
+    }
+
+    .stg-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 600px 400px at 20% 10%, rgba(37, 99, 235, 0.04), transparent 60%), radial-gradient(ellipse 500px 400px at 80% 80%, rgba(124, 58, 237, 0.03), transparent 55%);
+    }
+
+    .stg-inner {
+      position: relative;
+      z-index: 1;
+      padding: 40px 44px 80px;
+    }
+
+    .stg-hdr h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.7px;
+      margin: 0 0 6px;
+      font-family: 'Fraunces', serif;
+    }
+
+    .stg-hdr p {
+      font-size: 14px;
+      color: #64748B;
+      margin: 0;
+    }
+
+    .stg-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .g-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+
+    .g-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      border-color: #CBD5E1;
+    }
+
+    .g-card-hdr {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .g-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .g-icon-purple {
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+
+    .g-icon-blue {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+    }
+
+    .g-icon-green {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .g-icon-amber {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .g-icon-cyan {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+    }
+
+    .g-icon-red {
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .g-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0F172A;
+      letter-spacing: -0.2px;
+    }
+
+    .g-card-sub {
+      font-size: 12.5px;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+
+    .g-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 7px;
+    }
+
+    .g-input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #E2E8F0;
+      background: #FAFBFC;
+      font-size: 13.5px;
+      color: #0F172A;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      box-sizing: border-box;
+    }
+
+    .g-input:focus {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      background: white;
+    }
+
+    .g-select {
+      width: 100%;
+      padding: 10px 36px 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid #E2E8F0;
+      background: #FAFBFC;
+      font-size: 13.5px;
+      color: #0F172A;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      appearance: none;
+      cursor: pointer;
+      transition: border-color .2s;
+      box-sizing: border-box;
+    }
+
+    .g-select:focus {
+      border-color: #6366F1;
+      background: white;
+    }
+
+    .g-select option {
+      background: white;
+      color: #0F172A;
+    }
+
+    .g-sel-wrap {
+      position: relative;
+    }
+
+    .g-sel-wrap svg {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .g-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .g-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      border-radius: 12px;
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .2s;
+    }
+
+    .g-btn-purple {
+      background: linear-gradient(135deg, #4F46E5, #7C3AED);
+      box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+    }
+
+    .g-btn-purple:hover {
+      box-shadow: 0 6px 24px rgba(99, 102, 241, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .g-btn-blue {
+      background: linear-gradient(135deg, #2563EB, #3B82F6);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .g-btn-blue:hover {
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .g-btn-green {
+      background: linear-gradient(135deg, #059669, #10B981);
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+    }
+
+    .g-btn-green:hover {
+      box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .g-btn-sm {
+      padding: 7px 16px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      border: none;
+      transition: all .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .g-btn-sm-purple {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      color: #4F46E5;
+    }
+
+    .g-btn-sm-purple:hover {
+      background: rgba(99, 102, 241, 0.18);
+    }
+
+    .g-btn-sm-green {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #059669;
+    }
+
+    .g-btn-sm-green:hover {
+      background: rgba(16, 185, 129, 0.18);
+    }
+
+    .g-btn-sm-red {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      color: #DC2626;
+    }
+
+    .g-btn-sm-red:hover {
+      background: rgba(239, 68, 68, 0.15);
+    }
+
+    .g-btn-sm-gray {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #374151;
+    }
+
+    .g-btn-sm-gray:hover {
+      background: #E2E8F0;
+    }
+
+    .g-trow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .g-trow:last-child {
+      border-bottom: none;
+    }
+
+    .g-trow-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0F172A;
+      margin-bottom: 3px;
+    }
+
+    .g-trow-desc {
+      font-size: 12.5px;
+      color: #94A3B8;
+    }
+
+    .g-toggle {
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .g-ttrack {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      position: relative;
+      transition: background .2s;
+    }
+
+    .g-tthumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform .2s;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .g-arow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #E8ECF4;
+      background: #FAFBFC;
+      transition: all .15s;
+      margin-bottom: 10px;
+    }
+
+    .g-arow:last-child {
+      margin-bottom: 0;
+    }
+
+    .g-arow:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+
+    .g-arow-danger {
+      border-color: rgba(239, 68, 68, 0.15) !important;
+      background: rgba(254, 242, 242, 0.5) !important;
+    }
+
+    .g-arow-danger:hover {
+      background: rgba(254, 242, 242, 0.9) !important;
+      border-color: rgba(239, 68, 68, 0.25) !important;
+    }
+
+    .g-aicon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .g-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4F46E5, #7C3AED);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+    }
+
+    @media(max-width:1100px) {
+      .stg-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:768px) {
+      .stg-bg {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .stg-inner {
+        padding: 24px 16px 60px;
+      }
+
+      .g-fields {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="dashboard-layout"
+  style="display:flex;flex-direction:row;min-height:100vh;background:#f8fafc;font-family:'DM Sans',sans-serif;">
+
+  <!-- SIDEBAR (unchanged) -->
+  <aside
+    style="position:fixed;top:0;left:0;bottom:0;width:240px;background:#0F172A;display:flex;flex-direction:column;z-index:300;overflow:hidden;font-family:'DM Sans',sans-serif;">
+    <a href="dashboard.html"
+      style="height:64px;min-height:64px;padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:inherit;">
+      <div
+        style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(37,99,235,0.5),0 4px 12px rgba(37,99,235,0.35);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      </div>
+      <span style="font-size:15px;font-weight:700;color:#F8FAFC;letter-spacing:-0.3px;">ApplyAi</span>
+    </a>
+    <div style="flex:1;overflow-y:auto;padding:16px 10px 8px;">
+      <div
+        style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:0 8px;margin-bottom:6px;">
+        Menu</div>
+      <a href="dashboard.html" id="snav-dashboard" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Dashboard</span>
+      </a>
+      <a href="university.html" id="snav-universities" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+      </a>
+      <a href="tracker.html" id="snav-tracker" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <line x1="9" y1="9" x2="15" y2="9" />
+            <line x1="9" y1="12" x2="15" y2="12" />
+            <line x1="9" y1="15" x2="13" y2="15" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+      </a>
+      <a href="calendar.html" id="snav-calendar" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+      </a>
+      <a href="internship.html" id="snav-internships" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Internships</span>
+      </a>
+      <div style="height:1px;background:rgba(255,255,255,0.07);margin:14px 4px 10px;"></div>
+      <a href="learn.html" id="snav-learn" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Learn</span>
+      </a>
+      <a href="ai-advisor.html" id="snav-advisor" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;background:rgba(37,99,235,0.14);color:#93C5FD;text-decoration:none;"
+        onmouseover="this.style.background='rgba(37,99,235,0.22)';"
+        onmouseout="this.style.background='rgba(37,99,235,0.14)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(37,99,235,0.35);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:600;color:#93C5FD;flex:1;">AI Advisor</span>
+        <span
+          style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#4ADE80;white-space:nowrap;"><span
+            style="width:5px;height:5px;border-radius:50%;background:#4ADE80;display:inline-block;"></span>Live</span>
+      </a>
+      <a href="settings.html" id="snav-settings" class="snav-item snav-on"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Settings</span>
+      </a>
+    </div>
+    <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
+      <a href="../auth/login.html"
+        style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.09)'"
+        onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+        <div
+          style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">
+          S</div>
+        <div style="flex:1;overflow:hidden;">
+          <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot;
+            China</div>
+        </div>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- SETTINGS MAIN CONTENT -->
+  <div class="stg-bg">
+    <div class="stg-inner">
+
+      <!-- HEADER -->
+      <div class="stg-hdr" style="margin-bottom:4px;">
+        <h1><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+          </svg>Settings</h1>
+        <p>Manage your profile, preferences and account.</p>
+      </div>
+
+      <div class="stg-grid">
+
+        <!-- ═══ CARD 1: Profile & Account ═══ -->
+        <div class="g-card">
+          <div class="g-card-hdr">
+            <div class="g-icon g-icon-purple"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="#6366F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg></div>
+            <div>
+              <div class="g-card-title">Profile & Account</div>
+              <div class="g-card-sub">Your personal information</div>
+            </div>
+          </div>
+          <!-- Avatar -->
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px;">
+            <div class="g-avatar">S</div>
+            <div>
+              <div style="font-size:14px;font-weight:600;color:#0F172A;margin-bottom:4px;">Profile Picture</div>
+              <div style="font-size:12.5px;color:#94A3B8;margin-bottom:10px;">JPG, PNG up to 5MB</div>
+              <button onclick="showToast('Upload feature coming soon')" class="g-btn-sm g-btn-sm-purple">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                Upload Photo
+              </button>
+            </div>
+          </div>
+          <!-- Fields -->
+          <div class="g-fields">
+            <div><label class="g-label">Full Name</label><input type="text" value="Shivang Gupta" class="g-input"></div>
+            <div><label class="g-label">Email Address</label><input type="email" value="shivang@example.com"
+                class="g-input"></div>
+            <div><label class="g-label">Country of Origin</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>India</option>
+                  <option>China</option>
+                  <option>Nigeria</option>
+                  <option>Brazil</option>
+                  <option>Pakistan</option>
+                  <option>Bangladesh</option>
+                  <option>Other</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Target Study Country</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Germany</option>
+                  <option>USA</option>
+                  <option>UK</option>
+                  <option>Canada</option>
+                  <option>Australia</option>
+                  <option>China</option>
+                  <option>Netherlands</option>
+                  <option>Sweden</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+          </div>
+          <button onclick="showToast('Profile saved successfully!')" class="g-btn g-btn-purple">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Save Changes
+          </button>
+        </div>
+
+        <!-- ═══ CARD 2: AI Advisor Preferences ═══ -->
+        <div class="g-card">
+          <div class="g-card-hdr">
+            <div class="g-icon g-icon-cyan"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0891B2"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+              </svg></div>
+            <div>
+              <div class="g-card-title">AI Advisor Preferences</div>
+              <div class="g-card-sub">Customize your AI assistant behavior</div>
+            </div>
+          </div>
+          <div class="g-fields">
+            <div><label class="g-label">Advisor Tone</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Professional & Formal</option>
+                  <option>Friendly & Casual</option>
+                  <option>Motivational</option>
+                  <option>Concise & Direct</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Response Length</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Detailed & Thorough</option>
+                  <option>Balanced</option>
+                  <option>Short & Concise</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Focus Areas</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>University Selection</option>
+                  <option>Application Strategy</option>
+                  <option>Scholarship Hunting</option>
+                  <option>All Areas</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Language</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>English</option>
+                  <option>Hindi</option>
+                  <option>Chinese</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="g-trow">
+            <div>
+              <div class="g-trow-title">Auto-suggest improvements</div>
+              <div class="g-trow-desc">AI proactively suggests application improvements</div>
+            </div>
+            <div class="g-toggle"
+              onclick="var d=this.querySelector('.g-ttrack');var t=d.querySelector('.g-tthumb');if(d.style.background==='rgb(79, 70, 229)'){d.style.background='#E2E8F0';t.style.transform='translateX(0px)'}else{d.style.background='#4F46E5';t.style.transform='translateX(20px)'}">
+              <div class="g-ttrack" style="background:#4F46E5;">
+                <div class="g-tthumb" style="transform:translateX(20px);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <button onclick="showToast('AI preferences saved!')" class="g-btn g-btn-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Save AI Settings
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══ CARD 3: Application Preferences ═══ -->
+        <div class="g-card">
+          <div class="g-card-hdr">
+            <div class="g-icon g-icon-green"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14" />
+              </svg></div>
+            <div>
+              <div class="g-card-title">Application Preferences</div>
+              <div class="g-card-sub">Tailor your university and program matches</div>
+            </div>
+          </div>
+          <div class="g-fields">
+            <div><label class="g-label">Preferred Country</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Germany</option>
+                  <option>USA</option>
+                  <option>UK</option>
+                  <option>Canada</option>
+                  <option>Australia</option>
+                  <option>Netherlands</option>
+                  <option>Sweden</option>
+                  <option>Any</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Preferred Degree Level</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Masters (MSc / MA)</option>
+                  <option>Bachelor's</option>
+                  <option>PhD / Doctorate</option>
+                  <option>MBA</option>
+                  <option>Diploma / Certificate</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Field of Study</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Computer Science / AI</option>
+                  <option>Engineering</option>
+                  <option>Business / Management</option>
+                  <option>Data Science</option>
+                  <option>Medicine / Health</option>
+                  <option>Social Sciences</option>
+                  <option>Arts / Design</option>
+                  <option>Other</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+            <div><label class="g-label">Annual Budget Range</label>
+              <div class="g-sel-wrap"><select class="g-select">
+                  <option>Under $10,000</option>
+                  <option>$10,000 – $20,000</option>
+                  <option>$20,000 – $35,000</option>
+                  <option>$35,000 – $50,000</option>
+                  <option>Over $50,000</option>
+                  <option>Fully-funded / Scholarship only</option>
+                </select><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg></div>
+            </div>
+          </div>
+          <button onclick="showToast('Preferences saved!')" class="g-btn g-btn-green">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Save Preferences
+          </button>
+        </div>
+
+        <!-- ═══ CARD 4: Notification Settings ═══ -->
+        <div class="g-card">
+          <div class="g-card-hdr">
+            <div class="g-icon g-icon-amber"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="#D97706" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 01-3.46 0" />
+              </svg></div>
+            <div>
+              <div class="g-card-title">Notification Settings</div>
+              <div class="g-card-sub">Choose what updates you receive</div>
+            </div>
+          </div>
+          <div class="g-trow">
+            <div>
+              <div class="g-trow-title">Application Deadline Reminders</div>
+              <div class="g-trow-desc">Get notified 30, 14 and 3 days before each deadline</div>
+            </div>
+            <div class="g-toggle"
+              onclick="var d=this.querySelector('.g-ttrack');var t=d.querySelector('.g-tthumb');if(d.style.background==='rgb(79, 70, 229)'){d.style.background='#E2E8F0';t.style.transform='translateX(0px)'}else{d.style.background='#4F46E5';t.style.transform='translateX(20px)'}">
+              <div class="g-ttrack" style="background:#4F46E5;">
+                <div class="g-tthumb" style="transform:translateX(20px);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="g-trow">
+            <div>
+              <div class="g-trow-title">Internship Alerts</div>
+              <div class="g-trow-desc">New internship matches based on your profile</div>
+            </div>
+            <div class="g-toggle"
+              onclick="var d=this.querySelector('.g-ttrack');var t=d.querySelector('.g-tthumb');if(d.style.background==='rgb(79, 70, 229)'){d.style.background='#E2E8F0';t.style.transform='translateX(0px)'}else{d.style.background='#4F46E5';t.style.transform='translateX(20px)'}">
+              <div class="g-ttrack" style="background:#4F46E5;">
+                <div class="g-tthumb" style="transform:translateX(20px);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="g-trow">
+            <div>
+              <div class="g-trow-title">AI Advisor Suggestions</div>
+              <div class="g-trow-desc">Personalized tips and action items from your AI advisor</div>
+            </div>
+            <div class="g-toggle"
+              onclick="var d=this.querySelector('.g-ttrack');var t=d.querySelector('.g-tthumb');if(d.style.background==='rgb(79, 70, 229)'){d.style.background='#E2E8F0';t.style.transform='translateX(0px)'}else{d.style.background='#4F46E5';t.style.transform='translateX(20px)'}">
+              <div class="g-ttrack" style="background:#E2E8F0;">
+                <div class="g-tthumb" style="transform:translateX(0px);"></div>
+              </div>
+            </div>
+          </div>
+          <div class="g-trow">
+            <div>
+              <div class="g-trow-title">Weekly Opportunity Digest</div>
+              <div class="g-trow-desc">A curated weekly summary of new universities and scholarships</div>
+            </div>
+            <div class="g-toggle"
+              onclick="var d=this.querySelector('.g-ttrack');var t=d.querySelector('.g-tthumb');if(d.style.background==='rgb(79, 70, 229)'){d.style.background='#E2E8F0';t.style.transform='translateX(0px)'}else{d.style.background='#4F46E5';t.style.transform='translateX(20px)'}">
+              <div class="g-ttrack" style="background:#4F46E5;">
+                <div class="g-tthumb" style="transform:translateX(20px);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ CARD 5: Security & Data Management ═══ -->
+        <div class="g-card">
+          <div class="g-card-hdr">
+            <div class="g-icon g-icon-blue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0110 0v4" />
+              </svg></div>
+            <div>
+              <div class="g-card-title">Security & Data</div>
+              <div class="g-card-sub">Manage passwords and export data</div>
+            </div>
+          </div>
+          <div class="g-arow">
+            <div style="display:flex;align-items:center;gap:12px;flex:1;">
+              <div class="g-aicon g-icon-purple"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  stroke="#6366F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg></div>
+              <div>
+                <div style="font-size:13.5px;font-weight:600;color:#0F172A;">Change Password</div>
+                <div style="font-size:12px;color:#94A3B8;">Update your login credentials</div>
+              </div>
+            </div>
+            <button onclick="showToast('Password change coming soon')" class="g-btn-sm g-btn-sm-purple">Change
+              →</button>
+          </div>
+          <div class="g-arow">
+            <div style="display:flex;align-items:center;gap:12px;flex:1;">
+              <div class="g-aicon g-icon-green"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  stroke="#059669" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg></div>
+              <div>
+                <div style="font-size:13.5px;font-weight:600;color:#0F172A;">Export My Data</div>
+                <div style="font-size:12px;color:#94A3B8;">Download all your data as a ZIP file</div>
+              </div>
+            </div>
+            <button onclick="showToast('Preparing your data export...')" class="g-btn-sm g-btn-sm-green">Export
+              →</button>
+          </div>
+          <div class="g-arow">
+            <div style="display:flex;align-items:center;gap:12px;flex:1;">
+              <div class="g-aicon g-icon-blue"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg></div>
+              <div>
+                <div style="font-size:13.5px;font-weight:600;color:#0F172A;">Two-Factor Authentication</div>
+                <div style="font-size:12px;color:#94A3B8;">Add an extra layer of security</div>
+              </div>
+            </div>
+            <button onclick="showToast('2FA setup coming soon')" class="g-btn-sm g-btn-sm-purple">Enable →</button>
+          </div>
+        </div>
+
+        <!-- ═══ CARD 6: Danger Zone ═══ -->
+        <div class="g-card" style="border-color:rgba(239,68,68,0.12);">
+          <div class="g-card-hdr" style="border-bottom-color:rgba(239,68,68,0.1);">
+            <div class="g-icon g-icon-red"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg></div>
+            <div>
+              <div class="g-card-title" style="color:#DC2626;">Danger Zone</div>
+              <div class="g-card-sub" style="color:#F87171;">Irreversible account actions</div>
+            </div>
+          </div>
+          <div class="g-arow g-arow-danger">
+            <div style="display:flex;align-items:center;gap:12px;flex:1;">
+              <div class="g-aicon g-icon-red"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  stroke="#DC2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
+                  <path d="M10 11v6M14 11v6" />
+                  <path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2" />
+                </svg></div>
+              <div>
+                <div style="font-size:13.5px;font-weight:600;color:#DC2626;">Delete Account</div>
+                <div style="font-size:12px;color:#F87171;">This action is permanent and cannot be undone
+                </div>
+              </div>
+            </div>
+            <button onclick="showToast('Please contact support to delete your account')"
+              class="g-btn-sm g-btn-sm-red">Delete →</button>
+          </div>
+          <div class="g-arow">
+            <div style="display:flex;align-items:center;gap:12px;flex:1;">
+              <div class="g-aicon" style="background:rgba(100,116,139,0.1);border:1px solid rgba(100,116,139,0.15);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                  <polyline points="16 17 21 12 16 7" />
+                  <line x1="21" y1="12" x2="9" y2="12" />
+                </svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:600;color:#0F172A;">Log Out</div>
+                <div style="font-size:12px;color:#94A3B8;">Sign out of your ApplyAI account</div>
+              </div>
+            </div>
+            <button onclick="window.location.href='../auth/login.html'" class="g-btn-sm g-btn-sm-gray">Log Out
+              →</button>
+          </div>
+        </div>
+
+      </div><!-- /stg-grid -->
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast"
+    style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
+    <span id="toast-icon"
+      style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg
+        width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"
+        stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12" />
+      </svg></span>
+    <span id="toast-msg">Done!</span>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+
+</html>
