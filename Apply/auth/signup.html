@@ -63,21 +63,24 @@
           <div class="auth-divider-line"></div>
         </div>
         <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input class="form-input" type="text" placeholder="Shivang Gupta" id="signup-name">
+          <label class="form-label" for="signup-name">Full Name</label>
+          <input class="form-input" type="text" placeholder="Shivang Gupta" id="signup-name" name="name"
+            autocomplete="name">
         </div>
         <div class="form-group">
-          <label class="form-label">Email address</label>
-          <input class="form-input" type="email" placeholder="you@example.com">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" type="email" placeholder="you@example.com" id="email" name="email"
+            autocomplete="email">
         </div>
         <div class="form-group">
-          <label class="form-label">Password</label>
-          <input class="form-input" type="password" placeholder="Create a strong password">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-input" type="password" placeholder="Create a strong password" id="password" name="password"
+            autocomplete="new-password">
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Your Country</label>
-            <select class="form-input">
+            <label class="form-label" for="signup-country">Your Country</label>
+            <select class="form-input" id="signup-country" name="country" autocomplete="country">
               <option value="">Select country</option>
               <option>India</option>
               <option>Pakistan</option>
@@ -91,8 +94,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Target Country</label>
-            <select class="form-input">
+            <label class="form-label" for="signup-target-country">Target Country</label>
+            <select class="form-input" id="signup-target-country" name="target_country">
               <option value="">Where to study?</option>
               <option>China</option>
               <option>Germany</option>
@@ -106,8 +109,8 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Field of Study</label>
-          <select class="form-input">
+          <label class="form-label" for="signup-field">Field of Study</label>
+          <select class="form-input" id="signup-field" name="field_of_study">
             <option value="">Select your field</option>
             <option>Computer Science</option>
             <option>Engineering</option>
@@ -119,7 +122,7 @@
             <option>Environmental Science</option>
           </select>
         </div>
-        <button class="btn-form-primary" onclick="window.location.href='profile-setup.html'">Create Account & Continue
+        <button class="btn-form-primary" type="button" onclick="handleSignup()">Create Account & Continue
           →</button>
         <div class="auth-switch">
           Already have an account? <a class="auth-link" href="login.html">Sign in</a>
@@ -127,7 +130,7 @@
       </div>
     </div>
   </div>
-  <script src="../js/auth.js"></script>
+  <script type="module" src="../js/auth.js"></script>
 </body>
 
 </html>

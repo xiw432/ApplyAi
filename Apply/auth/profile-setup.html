@@ -53,6 +53,11 @@
                         <h3>Set your goals</h3>
                         <p>Help us personalise your experience</p>
                     </div>
+                    <input type="hidden" id="name" value="">
+                    <input type="hidden" id="country" value="">
+                    <input type="hidden" id="target_country" value="">
+                    <input type="hidden" id="degree" value="Master's">
+                    <input type="hidden" id="budget" value="Fully Funded">
                     <div class="form-group">
                         <label class="form-label">What degree are you targeting?</label>
                         <div class="profile-option-grid">
@@ -144,14 +149,14 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn-form-primary" onclick="window.location.href='../Dashboard/dashboard.html'">Go to
+                    <button class="btn-form-primary" type="button" onclick="saveProfile()">Go to
                         My Dashboard →</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../js/auth.js"></script>
+    <script type="module" src="../js/auth.js"></script>
 </body>
 
 </html>

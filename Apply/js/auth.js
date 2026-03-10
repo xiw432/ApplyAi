@@ -1,7 +1,7 @@
-(function() {
-'use strict';
+import { supabase } from "./supabase.js"
 
-window.showToast = function(msg) {
+// Toast notification
+window.showToast = function (msg) {
   var t = document.getElementById('auth-toast');
   if (!t) {
     t = document.createElement('div');
@@ -16,14 +16,145 @@ window.showToast = function(msg) {
   t.style.transform = 'translateY(0)';
   t.style.opacity = '1';
   clearTimeout(window._authToastTimer);
-  window._authToastTimer = setTimeout(function() {
+  window._authToastTimer = setTimeout(function () {
     t.style.transform = 'translateY(80px)';
     t.style.opacity = '0';
   }, 2400);
 };
 
-window.authRedirectToDashboard = function() {
+// Dashboard redirect
+window.authRedirectToDashboard = function () {
   window.location.href = '../Dashboard/dashboard.html';
 };
 
+// Signup handler
+async function handleSignup() {
+  try {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      // Collect extra sign-up fields to pass to profile-setup
+      const nameEl = document.getElementById("signup-name");
+      const countryEl = document.getElementById("signup-country");
+      const targetEl = document.getElementById("signup-target-country");
+
+      const params = new URLSearchParams();
+      if (nameEl && nameEl.value) params.set("name", nameEl.value);
+      if (countryEl && countryEl.value) params.set("country", countryEl.value);
+      if (targetEl && targetEl.value) params.set("target_country", targetEl.value);
+
+      const qs = params.toString();
+      window.location.href = "./profile-setup.html" + (qs ? "?" + qs : "");
+    }
+  } catch (err) {
+    alert("Signup failed: " + err.message);
+  }
+}
+
+window.handleSignup = handleSignup;
+
+// Login handler
+async function handleLogin() {
+  try {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+      alert("Please enter both email and password.");
+      return;
+    }
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      alert("Login successful");
+      window.location.href = "../Dashboard/dashboard.html";
+    }
+  } catch (err) {
+    alert("Login failed: " + err.message);
+  }
+}
+
+window.handleLogin = handleLogin;
+
+// Profile option selector (for card-style inputs on profile-setup page)
+window.selectOption = function (el, group) {
+  var siblings = el.parentElement.querySelectorAll('.profile-option');
+  siblings.forEach(function (s) { s.classList.remove('selected'); });
+  el.classList.add('selected');
+  // Store the selected value in a hidden input
+  var hidden = document.getElementById(group);
+  if (hidden) {
+    hidden.value = el.querySelector('.po-label').textContent.trim();
+  }
+};
+
+// Save profile handler
+async function saveProfile() {
+  try {
+    const name = document.getElementById("name") ? document.getElementById("name").value : "";
+    const country = document.getElementById("country") ? document.getElementById("country").value : "";
+    const targetCountry = document.getElementById("target_country") ? document.getElementById("target_country").value : "";
+    const degree = document.getElementById("degree") ? document.getElementById("degree").value : "";
+    const budget = document.getElementById("budget") ? document.getElementById("budget").value : "";
+
+    const user = (await supabase.auth.getUser()).data.user;
+
+    if (!user) {
+      alert("You must be logged in to save your profile.");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("profiles")
+      .upsert({
+        user_id: user.id,
+        name: name,
+        country: country,
+        target_country: targetCountry,
+        degree: degree,
+        budget: budget
+      });
+
+    if (error) {
+      alert(error.message);
+    } else {
+      window.location.href = "../Dashboard/dashboard.html";
+    }
+  } catch (err) {
+    alert("Profile save failed: " + err.message);
+  }
+}
+
+window.saveProfile = saveProfile;
+
+// Auto-populate profile-setup hidden inputs from URL params (passed from signup)
+(function populateProfileFromParams() {
+  const params = new URLSearchParams(window.location.search);
+  const fields = ["name", "country", "target_country"];
+  for (const field of fields) {
+    const val = params.get(field);
+    if (val) {
+      const el = document.getElementById(field);
+      if (el) el.value = val;
+    }
+  }
 })();

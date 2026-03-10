@@ -1,159 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard — ApplyAi</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — ApplyAi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/dashboard.css">
 </head>
-<body class="dashboard-layout" style="display:flex;flex-direction:row;min-height:100vh;background:#F7F8FA;font-family:'DM Sans',sans-serif;">
 
-<!-- Sidebar (active: Dashboard) -->
-<aside style="position:fixed;top:0;left:0;bottom:0;width:240px;background:#0F172A;display:flex;flex-direction:column;z-index:300;overflow:hidden;font-family:'DM Sans',sans-serif;">
-  <a href="dashboard.html" style="height:64px;min-height:64px;padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:inherit;">
-    <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(37,99,235,0.5),0 4px 12px rgba(37,99,235,0.35);">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-    </div>
-    <span style="font-size:15px;font-weight:700;color:#F8FAFC;letter-spacing:-0.3px;">ApplyAi</span>
-  </a>
-  <div style="flex:1;overflow-y:auto;padding:16px 10px 8px;">
-    <div style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:0 8px;margin-bottom:6px;">Menu</div>
-    <a href="dashboard.html" id="snav-dashboard" class="snav-item snav-on" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;text-decoration:none;">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;">Dashboard</span>
-    </a>
-    <a href="university.html" id="snav-universities" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
-    </a>
-    <a href="tracker.html" id="snav-tracker" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
-    </a>
-    <a href="calendar.html" id="snav-calendar" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
-    </a>
-    <a href="internship.html" id="snav-internships" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;">Internships</span>
-    </a>
-    <div style="height:1px;background:rgba(255,255,255,0.07);margin:14px 4px 10px;"></div>
-    <a href="learn.html" id="snav-learn" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;">Learn</span>
-    </a>
-    <a href="ai-advisor.html" id="snav-advisor" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;background:rgba(37,99,235,0.14);color:#93C5FD;text-decoration:none;" onmouseover="this.style.background='rgba(37,99,235,0.22)';" onmouseout="this.style.background='rgba(37,99,235,0.14)';">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(37,99,235,0.35);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-      <span style="font-size:13.5px;font-weight:600;color:#93C5FD;flex:1;">AI Advisor</span>
-      <span style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#4ADE80;white-space:nowrap;"><span style="width:5px;height:5px;border-radius:50%;background:#4ADE80;display:inline-block;"></span>Live</span>
-    </a>
-    <a href="settings.html" id="snav-settings" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
-      <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
-      <span style="font-size:13.5px;font-weight:500;">Settings</span>
-    </a>
-  </div>
-  <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
-    <a href="../auth/login.html" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.09)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-      <div style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">S</div>
-      <div style="flex:1;overflow:hidden;">
-        <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot; China</div>
-      </div>
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-    </a>
-  </div>
-</aside>
+<body class="dashboard-layout"
+  style="display:flex;flex-direction:row;min-height:100vh;background:#F7F8FA;font-family:'DM Sans',sans-serif;">
 
-<!-- Main Area -->
-<div style="margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;background:#F8F9FB;font-family:'DM Sans',sans-serif;">
-  <div style="position:sticky;top:0;z-index:100;height:64px;background:rgba(248,249,251,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #E5E7EB;padding:0 32px;display:flex;align-items:center;gap:16px;">
-    <div style="flex:1;max-width:420px;display:flex;align-items:center;gap:10px;background:white;border:1px solid #E5E7EB;border-radius:10px;padding:9px 16px;transition:border-color 0.15s;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" placeholder="Search universities, scholarships…" style="border:none;background:none;font-size:13.5px;color:#111;flex:1;outline:none;font-family:'DM Sans',sans-serif;"/>
-    </div>
-    <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
-      <div onclick="showToast('3 deadline alerts')" style="position:relative;width:38px;height:38px;border-radius:9px;background:white;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;cursor:pointer;" onmouseover="this.style.borderColor='#9CA3AF'" onmouseout="this.style.borderColor='#E5E7EB'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-        <div style="position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#EF4444;border:1.5px solid #F8F9FB;"></div>
+  <!-- Sidebar (active: Dashboard) -->
+  <aside
+    style="position:fixed;top:0;left:0;bottom:0;width:240px;background:#0F172A;display:flex;flex-direction:column;z-index:300;overflow:hidden;font-family:'DM Sans',sans-serif;">
+    <a href="dashboard.html"
+      style="height:64px;min-height:64px;padding:0 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);text-decoration:none;color:inherit;">
+      <div
+        style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px rgba(37,99,235,0.5),0 4px 12px rgba(37,99,235,0.35);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
       </div>
-      <a href="../auth/login.html" style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Fraunces',serif;text-decoration:none;">S</a>
-    </div>
-  </div>
-  <div style="flex:1;overflow-y:auto;padding:32px;display:flex;flex-direction:column;gap:24px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;">
-      <div>
-        <h1 style="font-size:22px;font-weight:700;color:#111;letter-spacing:-0.4px;margin:0 0 5px;font-family:'DM Sans',sans-serif;">Good morning, Shivang 👋</h1>
-        <p style="font-size:13.5px;color:#6B7280;margin:0;">You have <strong style="color:#DC2626;font-weight:700;">2 urgent deadlines</strong> this week — let's get ahead of them.</p>
-      </div>
-      <a href="university.html" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#111;color:white;border:none;border-radius:10px;font-size:13.5px;font-weight:600;font-family:'DM Sans',sans-serif;white-space:nowrap;text-decoration:none;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Add University
+      <span style="font-size:15px;font-weight:700;color:#F8FAFC;letter-spacing:-0.3px;">ApplyAi</span>
+    </a>
+    <div style="flex:1;overflow-y:auto;padding:16px 10px 8px;">
+      <div
+        style="font-size:10px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.22);padding:0 8px;margin-bottom:6px;">
+        Menu</div>
+      <a href="dashboard.html" id="snav-dashboard" class="snav-item snav-on"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;text-decoration:none;">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:#2563EB;display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Dashboard</span>
+      </a>
+      <a href="university.html" id="snav-universities" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+      </a>
+      <a href="tracker.html" id="snav-tracker" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}"
+        onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <line x1="9" y1="9" x2="15" y2="9" />
+            <line x1="9" y1="12" x2="15" y2="12" />
+            <line x1="9" y1="15" x2="13" y2="15" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
+        <span id="sidebar-apps-count"
+          style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+      </a>
+      <a href="calendar.html" id="snav-calendar" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
+        <span
+          style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+      </a>
+      <a href="internship.html" id="snav-internships" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Internships</span>
+      </a>
+      <div style="height:1px;background:rgba(255,255,255,0.07);margin:14px 4px 10px;"></div>
+      <a href="learn.html" id="snav-learn" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Learn</span>
+      </a>
+      <a href="ai-advisor.html" id="snav-advisor" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;background:rgba(37,99,235,0.14);color:#93C5FD;text-decoration:none;"
+        onmouseover="this.style.background='rgba(37,99,235,0.22)';"
+        onmouseout="this.style.background='rgba(37,99,235,0.14)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(37,99,235,0.35);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:600;color:#93C5FD;flex:1;">AI Advisor</span>
+        <span
+          style="display:flex;align-items:center;gap:4px;font-size:10px;font-weight:700;color:#4ADE80;white-space:nowrap;"><span
+            style="width:5px;height:5px;border-radius:50%;background:#4ADE80;display:inline-block;"></span>Live</span>
+      </a>
+      <a href="settings.html" id="snav-settings" class="snav-item"
+        style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;color:rgba(255,255,255,0.5);text-decoration:none;"
+        onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';"
+        onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
+        <div
+          style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+          </svg>
+        </div>
+        <span style="font-size:13.5px;font-weight:500;">Settings</span>
       </a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
-        <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <div><div style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">4</div><div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Applications</div></div>
+    <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;position:relative;">
+      <div id="user-menu-dropdown"
+        style="display:none;position:absolute;bottom:100%;left:12px;right:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px;margin-bottom:6px;box-shadow:0 -8px 24px rgba(0,0,0,0.3);">
+        <div
+          style="padding:8px 10px;font-size:11px;color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"
+          id="sidebar-user-email">Loading…</div>
+        <div onclick="handleLogout()"
+          style="display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:7px;cursor:pointer;color:#FCA5A5;font-size:12.5px;font-weight:600;transition:background 0.15s;"
+          onmouseover="this.style.background='rgba(255,255,255,0.06)'" onmouseout="this.style.background=''">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
+          </svg>
+          Logout
+        </div>
       </div>
-      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
-        <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div><div style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">2</div><div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Urgent Deadlines</div></div>
-      </div>
-      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
-        <div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-        <div><div style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">8</div><div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">University Matches</div></div>
-      </div>
-      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;"><div style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#FAF5FF;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">72<span style="font-size:15px;color:#6B7280;font-weight:500;">%</span></div><div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Profile Strength</div></div></div>
-        <div style="height:5px;background:#F3E8FF;border-radius:999px;overflow:hidden;"><div style="width:72%;height:100%;background:linear-gradient(90deg,#7C3AED,#A78BFA);border-radius:999px;"></div></div>
+      <div id="user-menu-trigger" onclick="toggleUserMenu()"
+        style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);cursor:pointer;"
+        onmouseover="this.style.background='rgba(255,255,255,0.09)'"
+        onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+        <div class="user-avatar-initial"
+          style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">
+          …</div>
+        <div style="flex:1;overflow:hidden;">
+          <div id="sidebar-user-name" style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Loading…
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Click to open menu
+          </div>
+        </div>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
       </div>
     </div>
-    <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
-      <div style="padding:20px 24px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
-        <div style="display:flex;align-items:center;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span style="font-size:15px;font-weight:700;color:#111;">Application Tracker</span><span style="font-size:11px;font-weight:600;background:#EFF6FF;color:#2563EB;padding:2px 9px;border-radius:6px;">4 Active</span></div>
-        <a href="tracker.html" style="font-size:12.5px;font-weight:600;color:#2563EB;text-decoration:none;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Open Kanban <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+  </aside>
+
+  <!-- Main Area -->
+  <div
+    style="margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;background:#F8F9FB;font-family:'DM Sans',sans-serif;">
+    <div
+      style="position:sticky;top:0;z-index:100;height:64px;background:rgba(248,249,251,0.97);backdrop-filter:blur(12px);border-bottom:1px solid #E5E7EB;padding:0 32px;display:flex;align-items:center;gap:16px;">
+      <div
+        style="flex:1;max-width:420px;display:flex;align-items:center;gap:10px;background:white;border:1px solid #E5E7EB;border-radius:10px;padding:9px 16px;transition:border-color 0.15s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="1.8"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" placeholder="Search universities, scholarships…"
+          style="border:none;background:none;font-size:13.5px;color:#111;flex:1;outline:none;font-family:'DM Sans',sans-serif;" />
       </div>
-      <div style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr 1.3fr;padding:10px 24px;background:#FAFAFA;border-bottom:1px solid #F3F4F6;">
-        <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">University</div><div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">Status</div><div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">Progress</div><div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">Deadline</div><div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">Missing Docs</div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:10px;">
+        <div onclick="showToast('3 deadline alerts')"
+          style="position:relative;width:38px;height:38px;border-radius:9px;background:white;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;cursor:pointer;"
+          onmouseover="this.style.borderColor='#9CA3AF'" onmouseout="this.style.borderColor='#E5E7EB'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 01-3.46 0" />
+          </svg>
+          <div
+            style="position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:#EF4444;border:1.5px solid #F8F9FB;">
+          </div>
+        </div>
+        <div onclick="toggleUserMenu()" class="user-avatar-initial"
+          style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;font-family:'Fraunces',serif;cursor:pointer;">
+          …</div>
       </div>
-      <div onclick="showToast('MIT — Documents submitted')" style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr 1.3fr;padding:16px 24px;border-bottom:1px solid #F9FAFB;align-items:center;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;gap:12px;min-width:0;flex:1;"><div style="width:36px;height:36px;min-width:36px;border-radius:9px;background:#0F172A;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:white;letter-spacing:-0.3px;font-family:'Fraunces',serif;">MIT</div><div><div style="font-size:13.5px;font-weight:600;color:#111;">MIT</div><div style="font-size:11.5px;color:#9CA3AF;">Engineering · USA</div></div></div><div><span style="font-size:11px;font-weight:700;background:#DBEAFE;color:#1D4ED8;padding:3px 10px;border-radius:6px;">Submitted</span></div><div style="display:flex;align-items:center;gap:10px;"><div style="flex:1;height:6px;background:#EFF6FF;border-radius:999px;overflow:hidden;max-width:120px;"><div style="width:80%;height:100%;background:#2563EB;border-radius:999px;"></div></div><span style="font-size:12.5px;font-weight:700;color:#2563EB;">80%</span></div><div><div style="font-size:12.5px;color:#6B7280;">Mar 15, 2026</div><div style="font-size:11px;color:#10B981;">Submitted</div></div><div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#10B981;font-weight:500;"><div style="width:6px;height:6px;border-radius:50%;background:#10B981;"></div>All docs ready</div></div>
-      <div onclick="showToast('Stanford — Essay pending')" style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr 1.3fr;padding:16px 24px;border-bottom:1px solid #F9FAFB;align-items:center;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;gap:12px;min-width:0;flex:1;"><div style="width:36px;height:36px;min-width:36px;border-radius:9px;background:#8C1515;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white;font-family:'Fraunces',serif;">SU</div><div><div style="font-size:13.5px;font-weight:600;color:#111;">Stanford University</div><div style="font-size:11.5px;color:#9CA3AF;">Computer Science · USA</div></div></div><div><span style="font-size:11px;font-weight:700;background:#FEF3C7;color:#D97706;padding:3px 10px;border-radius:6px;">In Progress</span></div><div style="display:flex;align-items:center;gap:10px;"><div style="flex:1;height:6px;background:#FEF9EE;border-radius:999px;overflow:hidden;max-width:120px;"><div style="width:60%;height:100%;background:#F59E0B;border-radius:999px;"></div></div><span style="font-size:12.5px;font-weight:700;color:#D97706;">60%</span></div><div><div style="font-size:12.5px;color:#6B7280;">Apr 1, 2026</div><div style="font-size:11px;color:#D97706;">25 days left</div></div><div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#D97706;font-weight:500;"><div style="width:6px;height:6px;border-radius:50%;background:#F59E0B;"></div>Essay pending</div></div>
-      <div onclick="showToast('Tsinghua — Action required!')" style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr 1.3fr;padding:16px 24px;border-bottom:1px solid #FEE2E2;border-left:3px solid #EF4444;align-items:center;cursor:pointer;background:#FFFBFB;transition:background 0.15s;" onmouseover="this.style.background='#FFF5F5'" onmouseout="this.style.background='#FFFBFB'"><div style="display:flex;align-items:center;gap:12px;min-width:0;flex:1;"><div style="width:36px;height:36px;min-width:36px;border-radius:9px;background:#6600AA;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:white;font-family:'Fraunces',serif;">清华</div><div><div style="font-size:13.5px;font-weight:600;color:#111;">Tsinghua University</div><div style="font-size:11.5px;color:#9CA3AF;">Engineering · China</div></div></div><div><span style="font-size:11px;font-weight:700;background:#FEE2E2;color:#DC2626;padding:3px 10px;border-radius:6px;">Urgent</span></div><div style="display:flex;align-items:center;gap:10px;"><div style="flex:1;height:6px;background:#FEE2E2;border-radius:999px;overflow:hidden;max-width:120px;"><div style="width:45%;height:100%;background:#EF4444;border-radius:999px;"></div></div><span style="font-size:12.5px;font-weight:700;color:#EF4444;">45%</span></div><div><div style="display:flex;align-items:center;gap:5px;"><div style="width:7px;height:7px;border-radius:50%;background:#EF4444;"></div><span style="font-size:12.5px;font-weight:700;color:#DC2626;">Mar 30</span></div><span style="display:inline-block;margin-top:3px;font-size:10.5px;font-weight:700;background:#FEE2E2;color:#DC2626;padding:1px 8px;border-radius:5px;">12 days left</span></div><div style="display:flex;flex-direction:column;gap:3px;"><div style="display:flex;align-items:center;gap:5px;font-size:11.5px;color:#DC2626;font-weight:500;"><div style="width:5px;height:5px;border-radius:50%;background:#EF4444;"></div>Rec. letter missing</div><div style="display:flex;align-items:center;gap:5px;font-size:11.5px;color:#DC2626;font-weight:500;"><div style="width:5px;height:5px;border-radius:50%;background:#EF4444;"></div>SOP missing</div></div></div>
-      <div onclick="showToast('Peking University — SOP in review')" style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr 1.3fr;padding:16px 24px;align-items:center;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;gap:12px;min-width:0;flex:1;"><div style="width:36px;height:36px;min-width:36px;border-radius:9px;background:#7B0000;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:white;font-family:'Fraunces',serif;">北大</div><div><div style="font-size:13.5px;font-weight:600;color:#111;">Peking University</div><div style="font-size:11.5px;color:#9CA3AF;">Computer Science · China</div></div></div><div><span style="font-size:11px;font-weight:700;background:#FEF3C7;color:#D97706;padding:3px 10px;border-radius:6px;">In Progress</span></div><div style="display:flex;align-items:center;gap:10px;"><div style="flex:1;height:6px;background:#FEF9EE;border-radius:999px;overflow:hidden;max-width:120px;"><div style="width:65%;height:100%;background:#F59E0B;border-radius:999px;"></div></div><span style="font-size:12.5px;font-weight:700;color:#D97706;">65%</span></div><div><div style="display:flex;align-items:center;gap:5px;"><div style="width:7px;height:7px;border-radius:50%;background:#F59E0B;"></div><span style="font-size:12.5px;font-weight:600;color:#D97706;">Apr 5</span></div><span style="display:inline-block;margin-top:3px;font-size:10.5px;font-weight:700;background:#FEF3C7;color:#D97706;padding:1px 8px;border-radius:5px;">18 days left</span></div><div style="display:flex;align-items:center;gap:5px;font-size:12px;color:#D97706;font-weight:500;"><div style="width:5px;height:5px;border-radius:50%;background:#F59E0B;"></div>SOP in review</div></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="flex:1;overflow-y:auto;padding:32px;display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h1
+            style="font-size:22px;font-weight:700;color:#111;letter-spacing:-0.4px;margin:0 0 5px;font-family:'DM Sans',sans-serif;">
+            Good morning, Shivang 👋</h1>
+          <p id="stat-deadline-subtitle" style="font-size:13.5px;color:#6B7280;margin:0;">You have <strong
+              style="color:#DC2626;font-weight:700;">2
+              urgent deadlines</strong> this week — let's get ahead of them.</p>
+        </div>
+        <a href="university.html"
+          style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;background:#111;color:white;border:none;border-radius:10px;font-size:13.5px;font-weight:600;font-family:'DM Sans',sans-serif;white-space:nowrap;text-decoration:none;"
+          onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Add University
+        </a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+        <div
+          style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;"
+          onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
+          <div
+            style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <div>
+            <div id="stat-total-applications"
+              style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">4</div>
+            <div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Applications</div>
+          </div>
+        </div>
+        <div
+          style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;"
+          onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
+          <div
+            style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div>
+            <div id="stat-urgent-deadlines"
+              style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">2</div>
+            <div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Urgent Deadlines</div>
+          </div>
+        </div>
+        <div
+          style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;display:flex;align-items:center;gap:14px;"
+          onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
+          <div
+            style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" />
+            </svg>
+          </div>
+          <div>
+            <div id="stat-saved-universities"
+              style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">—</div>
+            <div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Saved Universities</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 22px;"
+          onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'" onmouseout="this.style.boxShadow=''">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;">
+            <div
+              style="width:40px;height:40px;min-width:40px;border-radius:10px;background:#FAF5FF;display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div>
+              <div style="font-size:26px;font-weight:700;color:#111;line-height:1;letter-spacing:-0.5px;">72<span
+                  style="font-size:15px;color:#6B7280;font-weight:500;">%</span></div>
+              <div style="font-size:12px;color:#6B7280;margin-top:4px;font-weight:500;">Profile Strength</div>
+            </div>
+          </div>
+          <div style="height:5px;background:#F3E8FF;border-radius:999px;overflow:hidden;">
+            <div style="width:72%;height:100%;background:linear-gradient(90deg,#7C3AED,#A78BFA);border-radius:999px;">
+            </div>
+          </div>
+        </div>
+      </div>
       <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
-        <div style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span style="font-size:14px;font-weight:700;color:#111;">Upcoming Deadlines</span></div><a href="calendar.html" style="font-size:12px;font-weight:600;color:#2563EB;text-decoration:none;">Calendar →</a></div>
-        <div onclick="showToast('Tsinghua — 12 days!')" style="display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid #FEF2F2;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FFF5F5'" onmouseout="this.style.background=''"><div style="min-width:38px;text-align:center;"><div style="font-size:20px;font-weight:800;color:#DC2626;">30</div><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;">Mar</div></div><div style="width:3px;height:36px;border-radius:2px;background:#FCA5A5;"></div><div style="flex:1;min-width:0;"><div style="font-size:13px;font-weight:600;color:#111;">Tsinghua University</div><div style="font-size:11.5px;color:#9CA3AF;">CSC Application</div></div><span style="font-size:10.5px;font-weight:700;background:#FEE2E2;color:#DC2626;padding:2px 9px;border-radius:6px;">12 days</span></div>
-        <div onclick="showToast('Peking University — 18 days')" style="display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid #F9FAFB;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FFFBF0'" onmouseout="this.style.background=''"><div style="min-width:38px;text-align:center;"><div style="font-size:20px;font-weight:800;color:#D97706;">5</div><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;">Apr</div></div><div style="width:3px;height:36px;border-radius:2px;background:#FCD34D;"></div><div style="flex:1;"><div style="font-size:13px;font-weight:600;color:#111;">Peking University</div><div style="font-size:11.5px;color:#9CA3AF;">Masters Program</div></div><span style="font-size:10.5px;font-weight:700;background:#FEF3C7;color:#D97706;padding:2px 9px;border-radius:6px;">18 days</span></div>
-        <div onclick="showToast('TU Berlin — 33 days')" style="display:flex;align-items:center;gap:16px;padding:14px 22px;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#F0FDF4'" onmouseout="this.style.background=''"><div style="min-width:38px;text-align:center;"><div style="font-size:20px;font-weight:800;color:#16A34A;">20</div><div style="font-size:9px;font-weight:600;color:#9CA3AF;text-transform:uppercase;">Apr</div></div><div style="width:3px;height:36px;border-radius:2px;background:#86EFAC;"></div><div style="flex:1;"><div style="font-size:13px;font-weight:600;color:#111;">TU Berlin</div><div style="font-size:11.5px;color:#9CA3AF;">DAAD Application</div></div><span style="font-size:10.5px;font-weight:700;background:#DCFCE7;color:#16A34A;padding:2px 9px;border-radius:6px;">33 days</span></div>
+        <div
+          style="padding:20px 24px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg><span style="font-size:15px;font-weight:700;color:#111;">Application Tracker</span><span
+              id="stat-active-count"
+              style="font-size:11px;font-weight:600;background:#EFF6FF;color:#2563EB;padding:2px 9px;border-radius:6px;">4
+              Active</span></div>
+          <a href="tracker.html" style="font-size:12.5px;font-weight:600;color:#2563EB;text-decoration:none;"
+            onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Open Kanban <svg width="12"
+              height="12" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg></a>
+        </div>
+        <div
+          style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr;padding:10px 24px;background:#FAFAFA;border-bottom:1px solid #F3F4F6;">
+          <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">
+            University</div>
+          <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">
+            Status</div>
+          <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">
+            Progress</div>
+          <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">
+            Deadline</div>
+          <div style="font-size:10.5px;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.7px;">
+            Notes</div>
+        </div>
+        <div id="dashboard-app-rows"></div>
       </div>
-      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-        <div style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span style="font-size:14px;font-weight:700;color:#111;">AI Advisor</span></div><span style="font-size:10px;font-weight:700;background:#F0FDF4;color:#16A34A;padding:2px 9px;border-radius:999px;"><span style="width:5px;height:5px;border-radius:50%;background:#16A34A;display:inline-block;"></span>Online</span></div>
-        <div style="padding:18px 22px;display:flex;flex-direction:column;gap:14px;">
-          <div style="background:#F8F5FF;border:1px solid #EDE9FE;border-radius:10px;padding:16px;"><p style="font-size:13px;color:#374151;line-height:1.65;margin:0 0 12px;">Your <strong style="color:#DC2626;">Tsinghua deadline</strong> is in <strong>12 days</strong>. You are still missing:</p><div style="margin-bottom:14px;"><div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#DC2626;font-weight:500;">Recommendation letter</div><div style="display:flex;align-items:center;gap:8px;font-size:12.5px;color:#DC2626;font-weight:500;">Statement of Purpose (SOP)</div></div><button onclick="showToast('Generating email request for recommender…')" style="width:100%;padding:10px;background:#7C3AED;color:white;border:none;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Generate Email Request</button></div>
-          <div style="display:flex;gap:8px;"><input type="text" placeholder="Ask ApplyAI anything…" id="dash-ai-input" onkeydown="if(event.key==='Enter'&&this.value.trim()){showToast('AI response: check AI Advisor page for full chat');this.value='';}" style="flex:1;border:1px solid #E5E7EB;border-radius:9px;padding:9px 14px;font-size:13px;font-family:'DM Sans',sans-serif;outline:none;color:#111;" onfocus="this.style.borderColor='#7C3AED'" onblur="this.style.borderColor='#E5E7EB'" /><button onclick="showToast('Open AI Advisor page for full chat')" style="width:36px;height:36px;border-radius:9px;background:#7C3AED;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div>
+
+      <!-- Saved Universities -->
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
+        <div
+          style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" />
+            </svg>
+            <span style="font-size:14px;font-weight:700;color:#111;">Saved Universities</span>
+          </div>
+          <a href="university.html" style="font-size:12px;font-weight:600;color:#2563EB;text-decoration:none;"
+            onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Browse all →</a>
+        </div>
+        <div id="saved-universities-list">
+          <div style="padding:32px 22px;text-align:center;">
+            <div style="font-size:13px;color:#9CA3AF;">Loading…</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
+          <div
+            style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="15" viewBox="0 0 24 24"
+                fill="none" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg><span style="font-size:14px;font-weight:700;color:#111;">Upcoming Deadlines</span></div><a
+              href="calendar.html" style="font-size:12px;font-weight:600;color:#2563EB;text-decoration:none;">Calendar
+              →</a>
+          </div>
+          <div id="dashboard-deadlines"></div>
+        </div>
+        <div
+          style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+          <div
+            style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span style="font-size:14px;font-weight:700;color:#111;">AI Recommendations</span>
+            </div>
+            <span style="font-size:10px;font-weight:700;background:#F0FDF4;color:#16A34A;padding:2px 9px;border-radius:999px;">
+              <span style="width:5px;height:5px;border-radius:50%;background:#16A34A;display:inline-block;"></span>Live
+            </span>
+          </div>
+          <div id="ai-next-actions-list" style="padding:18px 22px;display:flex;flex-direction:column;gap:10px;">
+            <!-- AI-generated actions will be loaded here -->
+            <div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px;">
+              Loading recommendations...
+            </div>
+          </div>
+          <div style="padding:0 22px 18px;">
+            <a href="ai-advisor.html" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:#F8F5FF;border:1px solid #EDE9FE;border-radius:8px;font-size:12.5px;font-weight:600;color:#7C3AED;text-decoration:none;transition:all 0.15s;" onmouseover="this.style.background='#F0EDFF'" onmouseout="this.style.background='#F8F5FF'">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+              Open AI Advisor for Full Chat
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recommended Universities Section -->
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
+        <div
+          style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span style="font-size:14px;font-weight:700;color:#111;">Recommended Universities</span>
+          </div>
+          <a href="university.html" style="font-size:12px;font-weight:600;color:#2563EB;text-decoration:none;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            Browse all →
+          </a>
+        </div>
+        <div id="recommended-universities-list" style="display:grid;grid-template-columns:repeat(3,1fr);">
+          <!-- Recommendations will be loaded here -->
+          <div style="padding:32px 22px;text-align:center;grid-column:1/-1;">
+            <div style="font-size:13px;color:#9CA3AF;">Loading recommendations...</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
+        <div
+          style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="15" viewBox="0 0 24 24"
+              fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6" />
+              <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+            </svg><span style="font-size:14px;font-weight:700;color:#111;">Scholarship Matches</span></div><span
+            onclick="showToast('Opening all scholarships')"
+            style="font-size:12px;font-weight:600;color:#2563EB;cursor:pointer;">See all →</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+          <div onclick="showToast('DAAD Scholarship — 92% match')"
+            style="padding:18px 22px;border-right:1px solid #F3F4F6;cursor:pointer;transition:background 0.15s;"
+            onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div
+                  style="width:34px;height:34px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#2563EB;">
+                  D</div>
+                <div>
+                  <div style="font-size:13px;font-weight:700;color:#111;">DAAD</div>
+                  <div style="font-size:11px;color:#9CA3AF;">Germany · Fully Funded</div>
+                </div>
+              </div><span style="font-size:13px;font-weight:800;color:#16A34A;">92%</span>
+            </div>
+            <div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;">
+              <div style="width:92%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;">
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;"><span
+                style="font-size:11px;color:#9CA3AF;">Deadline</span><span
+                style="font-size:11.5px;font-weight:700;color:#DC2626;">Apr 15</span></div>
+          </div>
+          <div onclick="showToast('Fulbright — 88% match')"
+            style="padding:18px 22px;border-right:1px solid #F3F4F6;cursor:pointer;transition:background 0.15s;"
+            onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div
+                  style="width:34px;height:34px;border-radius:8px;background:#FEF9EE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#D97706;">
+                  F</div>
+                <div>
+                  <div style="font-size:13px;font-weight:700;color:#111;">Fulbright</div>
+                  <div style="font-size:11px;color:#9CA3AF;">USA · Full Tuition</div>
+                </div>
+              </div><span style="font-size:13px;font-weight:800;color:#16A34A;">88%</span>
+            </div>
+            <div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;">
+              <div style="width:88%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;">
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;"><span
+                style="font-size:11px;color:#9CA3AF;">Deadline</span><span
+                style="font-size:11.5px;font-weight:700;color:#D97706;">May 1</span></div>
+          </div>
+          <div onclick="showToast('CSC Scholarship — 85% match')"
+            style="padding:18px 22px;cursor:pointer;transition:background 0.15s;"
+            onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div
+                  style="width:34px;height:34px;border-radius:8px;background:#FAF5FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#7C3AED;">
+                  C</div>
+                <div>
+                  <div style="font-size:13px;font-weight:700;color:#111;">CSC China</div>
+                  <div style="font-size:11px;color:#9CA3AF;">China · Fully Funded</div>
+                </div>
+              </div><span style="font-size:13px;font-weight:800;color:#16A34A;">85%</span>
+            </div>
+            <div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;">
+              <div style="width:85%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;">
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;"><span
+                style="font-size:11px;color:#9CA3AF;">Deadline</span><span
+                style="font-size:11.5px;font-weight:700;color:#DC2626;">Mar 30</span></div>
+          </div>
         </div>
       </div>
     </div>
-    <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;">
-      <div style="padding:18px 22px;border-bottom:1px solid #F3F4F6;display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:center;gap:9px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg><span style="font-size:14px;font-weight:700;color:#111;">Scholarship Matches</span></div><span onclick="showToast('Opening all scholarships')" style="font-size:12px;font-weight:600;color:#2563EB;cursor:pointer;">See all →</span></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);"><div onclick="showToast('DAAD Scholarship — 92% match')" style="padding:18px 22px;border-right:1px solid #F3F4F6;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:10px;"><div style="width:34px;height:34px;border-radius:8px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#2563EB;">D</div><div><div style="font-size:13px;font-weight:700;color:#111;">DAAD</div><div style="font-size:11px;color:#9CA3AF;">Germany · Fully Funded</div></div></div><span style="font-size:13px;font-weight:800;color:#16A34A;">92%</span></div><div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;"><div style="width:92%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;"></div></div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;color:#9CA3AF;">Deadline</span><span style="font-size:11.5px;font-weight:700;color:#DC2626;">Apr 15</span></div></div><div onclick="showToast('Fulbright — 88% match')" style="padding:18px 22px;border-right:1px solid #F3F4F6;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:10px;"><div style="width:34px;height:34px;border-radius:8px;background:#FEF9EE;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#D97706;">F</div><div><div style="font-size:13px;font-weight:700;color:#111;">Fulbright</div><div style="font-size:11px;color:#9CA3AF;">USA · Full Tuition</div></div></div><span style="font-size:13px;font-weight:800;color:#16A34A;">88%</span></div><div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;"><div style="width:88%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;"></div></div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;color:#9CA3AF;">Deadline</span><span style="font-size:11.5px;font-weight:700;color:#D97706;">May 1</span></div></div><div onclick="showToast('CSC Scholarship — 85% match')" style="padding:18px 22px;cursor:pointer;transition:background 0.15s;" onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''"><div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><div style="display:flex;align-items:center;gap:10px;"><div style="width:34px;height:34px;border-radius:8px;background:#FAF5FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#7C3AED;">C</div><div><div style="font-size:13px;font-weight:700;color:#111;">CSC China</div><div style="font-size:11px;color:#9CA3AF;">China · Fully Funded</div></div></div><span style="font-size:13px;font-weight:800;color:#16A34A;">85%</span></div><div style="height:4px;background:#F0FDF4;border-radius:999px;overflow:hidden;margin-bottom:10px;"><div style="width:85%;height:100%;background:linear-gradient(90deg,#16A34A,#4ADE80);border-radius:999px;"></div></div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-size:11px;color:#9CA3AF;">Deadline</span><span style="font-size:11.5px;font-weight:700;color:#DC2626;">Mar 30</span></div></div></div>
-    </div>
   </div>
-</div>
 
-<div class="toast" id="toast" style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
-  <span id="toast-icon" style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-  <span id="toast-msg">Done!</span>
-</div>
+  <div class="toast" id="toast"
+    style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
+    <span id="toast-icon"
+      style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg
+        width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"
+        stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12" />
+      </svg></span>
+    <span id="toast-msg">Done!</span>
+  </div>
 
-<script src="../js/app.js"></script>
+  <script type="module" src="../js/auth-guard.js"></script>
+  <script type="module" src="../js/user-menu.js"></script>
+  <script type="module" src="../js/dashboard.js"></script>
+  <script type="module" src="../js/dashboard-saved.js"></script>
+  <script type="module" src="../js/dashboard-deadlines.js"></script>
+  <script type="module" src="../js/ai-next-actions.js"></script>
+  <script type="module" src="../js/deadline-reminders.js"></script>
+  <script type="module" src="../js/university-recommendations.js"></script>
+  <script src="../js/app.js"></script>
 </body>
+
 </html>

@@ -93,7 +93,7 @@
           <div style="font-size:12px;font-weight:600;background:#FFF3E0;color:#d97706;padding:5px 12px;border-radius:999px;">2 In Progress</div>
           <div style="font-size:12px;font-weight:600;background:#FFEBEE;color:#dc2626;padding:5px 12px;border-radius:999px;">3 Upcoming</div>
         </div>
-        <div onclick="showToast('+ Add new application')" style="font-size:13px;font-weight:600;color:white;background:#3148E8;border-radius:9px;padding:8px 16px;cursor:pointer;box-shadow:0 3px 12px rgba(49,72,232,0.28);white-space:nowrap;">+ Add University</div>
+        <div onclick="openAddApplicationModal()" style="font-size:13px;font-weight:600;color:white;background:#3148E8;border-radius:9px;padding:8px 16px;cursor:pointer;box-shadow:0 3px 12px rgba(49,72,232,0.28);white-space:nowrap;">+ Add University</div>
         <div onclick="window.location.href='../auth/login.html'" style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3148E8,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;cursor:pointer;font-family:'Fraunces',serif;flex-shrink:0;">S</div>
       </div>
     </div>
@@ -382,11 +382,62 @@
     </div><!-- /body -->
   </div><!-- /main-area -->
 
+
+<!-- Add Application Modal -->
+<div id="add-application-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:9000;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;">
+  <div style="background:white;border-radius:16px;padding:32px;width:440px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,0.2);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+      <h2 style="font-size:18px;font-weight:700;color:#0f0e17;margin:0;font-family:'Fraunces',serif;">Add Application</h2>
+      <div onclick="closeAddApplicationModal()" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#9997aa;font-size:18px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">&times;</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">University Name *</label>
+        <input type="text" id="university_name" placeholder="e.g. Tsinghua University" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;box-sizing:border-box;" onfocus="this.style.borderColor='#3148E8'" onblur="this.style.borderColor='#E6E8EC'" />
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Country *</label>
+        <input type="text" id="country" placeholder="e.g. China" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;box-sizing:border-box;" onfocus="this.style.borderColor='#3148E8'" onblur="this.style.borderColor='#E6E8EC'" />
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Program *</label>
+        <input type="text" id="program" placeholder="e.g. MSc Computer Science" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;box-sizing:border-box;" onfocus="this.style.borderColor='#3148E8'" onblur="this.style.borderColor='#E6E8EC'" />
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Status</label>
+        <select id="status" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;background:white;box-sizing:border-box;cursor:pointer;">
+          <option value="Saved">Saved</option>
+          <option value="Preparing">Preparing Docs</option>
+          <option value="Submitted">Submitted</option>
+          <option value="Interview">Interview Stage</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Deadline</label>
+        <input type="date" id="deadline" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;box-sizing:border-box;" onfocus="this.style.borderColor='#3148E8'" onblur="this.style.borderColor='#E6E8EC'" />
+      </div>
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Notes</label>
+        <textarea id="notes" rows="3" placeholder="Any additional notes..." style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;resize:vertical;box-sizing:border-box;" onfocus="this.style.borderColor='#3148E8'" onblur="this.style.borderColor='#E6E8EC'"></textarea>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px;">
+        <button onclick="closeAddApplicationModal()" style="flex:1;padding:11px;border-radius:10px;border:1.5px solid #E6E8EC;background:white;font-size:14px;font-weight:600;color:#57556a;cursor:pointer;font-family:'DM Sans',sans-serif;">Cancel</button>
+        <button onclick="addApplication()" style="flex:1;padding:11px;border-radius:10px;border:none;background:#3148E8;font-size:14px;font-weight:600;color:white;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 3px 12px rgba(49,72,232,0.3);">Add Application</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast" style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
   <span id="toast-icon" style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
   <span id="toast-msg">Done!</span>
 </div>
 
+<script type="module" src="../js/auth-guard.js"></script>
+<script type="module" src="../js/user-menu.js"></script>
+<script type="module" src="../js/tracker.js"></script>
+<script type="module" src="../js/document-upload.js"></script>
 <script src="../js/app.js"></script>
 </body>
 </html>
