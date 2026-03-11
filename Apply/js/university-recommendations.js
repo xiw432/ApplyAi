@@ -28,12 +28,17 @@ async function loadRecommendedUniversities() {
       .from("profiles")
       .select("*")
       .eq("id", user.id)
-      .single();
+      .maybeSingle();
 
-    if (profileError || !profile) {
+    if (profileError) {
       console.error("Error loading profile:", profileError);
       showNoRecommendations(container);
       return;
+    }
+
+    // If no profile exists, still try to show some recommendations
+    if (!profile) {
+      console.log("No profile found, showing general recommendations");
     }
 
     // Get universities user has already saved
@@ -58,12 +63,12 @@ async function loadRecommendedUniversities() {
       .select("*");
 
     // Filter by target country if available
-    if (profile.target_country) {
+    if (profile && profile.target_country) {
       query = query.eq("country", profile.target_country);
     }
 
     // Filter by degree level if available
-    if (profile.degree_level) {
+    if (profile && profile.degree_level) {
       query = query.contains("degree_levels", [profile.degree_level]);
     }
 
@@ -97,7 +102,7 @@ async function loadRecommendedUniversities() {
     );
 
     // If budget is available, sort by tuition proximity
-    if (profile.budget && recommendations.length > 0) {
+    if (profile && profile.budget && recommendations.length > 0) {
       recommendations = sortByBudgetProximity(recommendations, profile.budget);
     }
 
@@ -151,12 +156,11 @@ function parseBudget(budgetStr) {
  * Show no recommendations message
  */
 function showNoRecommendations(container) {
+  container.style.cssText = "padding:32px 22px;text-align:center;";
   container.innerHTML = `
-    <div style="padding:32px 22px;text-align:center;">
-      <div style="font-size:40px;margin-bottom:12px;">🎓</div>
-      <div style="font-size:13px;color:#9CA3AF;">No recommendations available yet.</div>
-      <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">Complete your profile to get personalized matches.</div>
-    </div>
+    <div style="font-size:40px;margin-bottom:12px;">🎓</div>
+    <div style="font-size:13px;color:#9CA3AF;">No recommendations available yet.</div>
+    <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">Complete your profile to get personalized matches.</div>
   `;
 }
 
@@ -165,6 +169,7 @@ function showNoRecommendations(container) {
  */
 function renderRecommendations(universities, container) {
   container.innerHTML = "";
+  container.style.cssText = "display:grid;grid-template-columns:repeat(3,1fr);gap:0;";
 
   universities.forEach((uni, index) => {
     const initial = uni.name ? uni.name.charAt(0).toUpperCase() : "U";
@@ -177,8 +182,19 @@ function renderRecommendations(universities, container) {
     ];
     const colorScheme = colors[index % colors.length];
 
-    // Calculate match percentage (simplified)
-    const matchScore = 85 + (5 - index) * 3; // 100%, 97%, 94%, 91%, 88%
+    // Calculate real match percentage based on multiple factors
+    let matchScore = 70; // Base score
+    
+    // Ranking bonus (better ranking = higher match)
+    if (uni.ranking && uni.ranking <= 100) matchScore += 15;
+    else if (uni.ranking && uni.ranking <= 500) matchScore += 10;
+    else if (uni.ranking) matchScore += 5;
+    
+    // Position bonus (first results are typically better matches)
+    matchScore += (5 - index) * 2;
+    
+    // Cap at 100
+    matchScore = Math.min(100, matchScore);
 
     // Format programs
     const programs = Array.isArray(uni.programs) 
@@ -189,9 +205,15 @@ function renderRecommendations(universities, container) {
     const deadlineStr = uni.deadline ? formatDeadline(uni.deadline) : "Check website";
 
     const card = document.createElement("div");
-    card.style.cssText = "padding:18px 22px;border-right:1px solid #F3F4F6;cursor:pointer;transition:background 0.15s;";
-    card.onmouseover = function() { this.style.background = "#FAFAFA"; };
-    card.onmouseout = function() { this.style.background = ""; };
+    card.style.cssText = "padding:18px 22px;border:1px solid rgba(0,0,0,0.85);border-radius:12px;cursor:pointer;transition:all 0.15s;background:white;margin:8px;box-shadow:0 2px 8px rgba(0,0,0,0.04);";
+    card.onmouseover = function() { 
+      this.style.background = "#FAFAFA";
+      this.style.boxShadow = "0 4px 16px rgba(0,0,0,0.08)";
+    };
+    card.onmouseout = function() { 
+      this.style.background = "white";
+      this.style.boxShadow = "0 2px 8px rgba(0,0,0,0.04)";
+    };
     card.onclick = function() {
       if (typeof showToast === "function") {
         showToast(`Opening ${uni.name}...`);

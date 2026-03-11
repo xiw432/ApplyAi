@@ -111,20 +111,35 @@ async function loadAiNextActions() {
     </div>
   `;
 
+  console.log("=== AI Next Actions Request Start ===");
+
   try {
     // Load user context
+    console.log("Loading user context for next actions...");
     const context = await loadUserContext();
+    console.log("Context loaded:", context ? "Success" : "Failed");
 
+    const message = "Based on this user's profile, applications, deadlines, and saved universities, generate 3 to 5 clear, specific, and actionable next steps they should take right now. Format each action as a short sentence (max 10 words). Focus on urgent deadlines, missing documents, and profile improvements. Return ONLY the actions as a numbered list, nothing else.";
+    
+    console.log("Next actions prompt:", message);
+    console.log("Calling AI Advisor for next actions...");
+    
+    const startTime = Date.now();
     // Call AI Advisor with special prompt for next actions
     const { data, error } = await supabase.functions.invoke("ai-advisor", {
-      body: {
-        message: "Based on this user's profile, applications, deadlines, and saved universities, generate 3 to 5 clear, specific, and actionable next steps they should take right now. Format each action as a short sentence (max 10 words). Focus on urgent deadlines, missing documents, and profile improvements. Return ONLY the actions as a numbered list, nothing else.",
-        context,
-      },
+      body: { message, context },
     });
+    const endTime = Date.now();
+    
+    console.log(`AI Next Actions call completed in ${endTime - startTime}ms`);
+    console.log("Next actions response data:", data);
+    console.log("Next actions response error:", error);
 
     if (error) {
-      console.error("Error loading AI next actions:", error);
+      console.error("=== AI Next Actions Error ===");
+      console.error("Error object:", error);
+      console.error("Error details:", JSON.stringify(error, null, 2));
+      
       container.innerHTML = `
         <div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px;">
           Unable to load recommendations. <a href="ai-advisor.html" style="color:#7C3AED;font-weight:600;text-decoration:none;">Try AI Advisor →</a>
@@ -134,18 +149,36 @@ async function loadAiNextActions() {
     }
 
     if (data && data.reply) {
+      console.log("=== AI Next Actions Success ===");
+      console.log("Reply received:", data.reply);
+      console.log("Reply length:", data.reply.length);
+      
       // Parse the AI response into action items
       const actions = parseActionsFromReply(data.reply);
+      console.log("Parsed actions:", actions);
+      console.log("Actions count:", actions.length);
+      
       renderNextActions(actions, container);
     } else {
+      console.warn("=== AI Next Actions Unexpected Response ===");
+      console.warn("Data exists:", !!data);
+      console.warn("Data.reply exists:", !!(data && data.reply));
+      console.warn("Full data object:", data);
+      
       container.innerHTML = `
         <div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px;">
           No recommendations available.
         </div>
       `;
     }
+    
+    console.log("=== AI Next Actions Request End ===");
   } catch (err) {
-    console.error("Error calling AI for next actions:", err);
+    console.error("=== AI Next Actions Exception ===");
+    console.error("Exception caught:", err);
+    console.error("Exception message:", err.message);
+    console.error("Exception stack:", err.stack);
+    
     container.innerHTML = `
       <div style="padding:20px;text-align:center;color:#9CA3AF;font-size:13px;">
         Unable to load recommendations.

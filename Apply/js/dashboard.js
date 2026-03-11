@@ -16,9 +16,17 @@ async function loadDashboardStats() {
 
     const apps = data || []
 
+    // Fetch saved universities count
+    const { data: savedData } = await supabase
+        .from("saved_universities")
+        .select("id")
+        .eq("user_id", user.id)
+    
+    const savedCount = savedData?.length || 0
+
     // Calculate statistics
     const totalApplications = apps.length
-    const savedCount = apps.filter(a => a.status === "Saved").length
+    const savedAppCount = apps.filter(a => a.status === "Saved").length
     const preparingCount = apps.filter(a => a.status === "Preparing").length
     const submittedCount = apps.filter(a => a.status === "Submitted").length
     const interviewCount = apps.filter(a => a.status === "Interview").length
@@ -42,6 +50,9 @@ async function loadDashboardStats() {
 
     const urgentEl = document.getElementById("stat-urgent-deadlines")
     if (urgentEl) urgentEl.textContent = urgentDeadlines
+
+    const savedEl = document.getElementById("stat-saved-universities")
+    if (savedEl) savedEl.textContent = savedCount
 
     // Update the "Active" badge in Application Tracker header
     const activeEl = document.getElementById("stat-active-count")
