@@ -26,17 +26,17 @@
     <a href="university.html" id="snav-universities" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
       <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+      <span id="sidebar-universities-count" style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">0</span>
     </a>
     <a href="tracker.html" id="snav-tracker" class="snav-item snav-on" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="if(!this.classList.contains('snav-on')){this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';}" onmouseout="if(!this.classList.contains('snav-on')){this.style.background='';this.style.color='rgba(255,255,255,0.5)';}">
       <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="13" y2="15"/></svg></div>
       <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+      <span id="sidebar-applications-count" style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">0</span>
     </a>
     <a href="calendar.html" id="snav-calendar" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
       <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
       <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
-      <span style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+      <span id="sidebar-calendar-count" style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">0</span>
     </a>
     <a href="internship.html" id="snav-internships" class="snav-item" style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.06)';this.style.color='rgba(255,255,255,0.88)';" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,0.5)';">
       <div style="width:32px;height:32px;min-width:32px;border-radius:8px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg></div>
@@ -59,10 +59,10 @@
   </div>
   <div style="padding:12px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;">
     <a href="../auth/login.html" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.09)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
-      <div style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">S</div>
+      <div class="user-avatar-initial" style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;"></div>
       <div style="flex:1;overflow:hidden;">
-        <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
-        <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot; China</div>
+        <div id="sidebar-user-name" style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Loading...</div>
+        <div id="sidebar-user-subtitle" style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Loading...</div>
       </div>
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
@@ -74,27 +74,85 @@
   <div style="margin-left:240px;flex:1;display:flex;flex-direction:column;min-height:100vh;overflow:hidden;">
 
     <!-- Topbar -->
-    <div style="height:60px;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.07);position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:0 28px;gap:16px;flex-shrink:0;">
-      <div style="display:flex;align-items:center;gap:16px;">
+    <div style="height:auto;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.07);position:sticky;top:0;z-index:40;padding:20px 28px;flex-shrink:0;">
+      <!-- Header Row -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
         <div>
-          <div style="font-size:11px;color:#9997aa;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;">Applications</div>
-          <div style="font-size:15px;font-weight:700;color:#0f0e17;font-family:'Fraunces',serif;line-height:1.2;">Application Tracker</div>
+          <div id="page-category" style="font-size:11px;color:#9997aa;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">Applications</div>
+          <div id="page-title" style="font-size:20px;font-weight:700;color:#0f0e17;font-family:'Fraunces',serif;line-height:1.2;">Application Tracker</div>
+          <div id="page-subtitle" style="font-size:12px;color:#6B7280;margin-top:4px;"></div>
         </div>
-        <!-- View toggle -->
-        <div style="display:flex;gap:2px;background:#f5f4f1;border-radius:9px;padding:3px;">
-          <div id="view-kanban" onclick="setView('kanban')" style="padding:5px 12px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:#0f0e17;box-shadow:0 1px 4px rgba(0,0,0,0.08);">⬜ Board</div>
-          <div id="view-list" onclick="setView('list')" style="padding:5px 12px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;color:#9997aa;">≡ List</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div onclick="openAddApplicationModal()" style="font-size:13px;font-weight:600;color:white;background:#3148E8;border-radius:9px;padding:10px 18px;cursor:pointer;box-shadow:0 3px 12px rgba(49,72,232,0.28);white-space:nowrap;display:flex;align-items:center;gap:6px;" onmouseover="this.style.background='#2337C7'" onmouseout="this.style.background='#3148E8'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/>
+              <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add Application
+          </div>
         </div>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <!-- Stats pills -->
-        <div style="display:flex;gap:6px;">
-          <div style="font-size:12px;font-weight:600;background:#e4f7f0;color:#1a9e6e;padding:5px 12px;border-radius:999px;">1 Accepted</div>
-          <div style="font-size:12px;font-weight:600;background:#FFF3E0;color:#d97706;padding:5px 12px;border-radius:999px;">2 In Progress</div>
-          <div style="font-size:12px;font-weight:600;background:#FFEBEE;color:#dc2626;padding:5px 12px;border-radius:999px;">3 Upcoming</div>
+
+      <!-- Summary Stats Bar -->
+      <div id="tracker-summary-stats" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px;">
+        <div style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#6B7280;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div id="stat-total" style="font-size:18px;font-weight:700;color:#0f0e17;line-height:1;">0</div>
+            <div style="font-size:10px;color:#9997aa;font-weight:500;margin-top:2px;">Total</div>
+          </div>
         </div>
-        <div onclick="openAddApplicationModal()" style="font-size:13px;font-weight:600;color:white;background:#3148E8;border-radius:9px;padding:8px 16px;cursor:pointer;box-shadow:0 3px 12px rgba(49,72,232,0.28);white-space:nowrap;">+ Add University</div>
-        <div onclick="window.location.href='../auth/login.html'" style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3148E8,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;cursor:pointer;font-family:'Fraunces',serif;flex-shrink:0;">S</div>
+        <div style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#d97706;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div id="stat-planning" style="font-size:18px;font-weight:700;color:#0f0e17;line-height:1;">0</div>
+            <div style="font-size:10px;color:#9997aa;font-weight:500;margin-top:2px;">Planning</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#3148E8;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div id="stat-applied" style="font-size:18px;font-weight:700;color:#0f0e17;line-height:1;">0</div>
+            <div style="font-size:10px;color:#9997aa;font-weight:500;margin-top:2px;">Applied</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#7c3aed;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div id="stat-interview" style="font-size:18px;font-weight:700;color:#0f0e17;line-height:1;">0</div>
+            <div style="font-size:10px;color:#9997aa;font-weight:500;margin-top:2px;">Interview</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+          <div style="width:8px;height:8px;border-radius:50%;background:#1a9e6e;flex-shrink:0;"></div>
+          <div style="flex:1;">
+            <div id="stat-accepted" style="font-size:18px;font-weight:700;color:#0f0e17;line-height:1;">0</div>
+            <div style="font-size:10px;color:#9997aa;font-weight:500;margin-top:2px;">Accepted</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search and Filter Controls -->
+      <div style="display:flex;gap:10px;align-items:center;">
+        <div style="flex:1;max-width:320px;display:flex;align-items:center;gap:8px;background:white;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:8px 12px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9997aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input id="search-input" type="text" placeholder="Search universities..." style="border:none;background:none;font-size:13px;color:#0f0e17;flex:1;outline:none;font-family:'DM Sans',sans-serif;" oninput="filterApplications()" />
+        </div>
+        <select id="filter-status" style="padding:8px 12px;border:1px solid rgba(0,0,0,0.08);border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;color:#57556a;background:white;cursor:pointer;outline:none;" onchange="filterApplications()">
+          <option value="">All Statuses</option>
+          <option value="Planning">Planning</option>
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <select id="filter-country" style="padding:8px 12px;border:1px solid rgba(0,0,0,0.08);border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;color:#57556a;background:white;cursor:pointer;outline:none;" onchange="filterApplications()">
+          <option value="">All Countries</option>
+        </select>
+        <button onclick="clearFilters()" style="padding:8px 12px;border:1px solid rgba(0,0,0,0.08);border-radius:10px;font-size:13px;font-family:'DM Sans',sans-serif;color:#57556a;background:white;cursor:pointer;font-weight:500;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background='white'">Clear</button>
       </div>
     </div>
 
@@ -104,262 +162,61 @@
       <!-- ── KANBAN BOARD ── -->
       <div id="kanban-board" style="flex:1;overflow-x:auto;overflow-y:hidden;padding:20px 24px;display:flex;gap:14px;align-items:flex-start;">
 
-        <!-- ─ COL 1: SAVED ─ -->
-        <div class="kb-col" data-col="saved" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'saved')">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <div style="width:10px;height:10px;border-radius:50%;background:#9997aa;"></div>
-              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Saved</span>
-              <span style="font-size:11px;font-weight:600;background:#f5f4f1;color:#9997aa;padding:1px 8px;border-radius:999px;" id="count-saved">2</span>
-            </div>
-            <div onclick="showToast('+ New card in Saved')" style="font-size:18px;color:#9997aa;cursor:pointer;line-height:1;padding:2px 6px;border-radius:6px;" onmouseover="this.style.background='rgba(0,0,0,0.05)'" onmouseout="this.style.background=''">+</div>
-          </div>
-          <div id="col-saved" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-
-            <!-- CARD: ETH Zürich -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="eth" data-col="saved" style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 1px 8px rgba(0,0,0,0.06);" onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 1px 8px rgba(0,0,0,0.06)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1B3D6F,#2E6DB4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white;font-family:'Fraunces',serif;flex-shrink:0;">ETH</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">ETH Zürich</div>
-                    <div style="font-size:11px;color:#9997aa;"> Switzerland</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="font-size:11px;font-weight:600;color:#9997aa;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Documents</div>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;"><span style="color:#9997aa;font-size:13px;">○</span> Transcript</div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;"><span style="color:#9997aa;font-size:13px;">○</span> Passport</div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;"><span style="color:#9997aa;font-size:13px;">○</span> Statement of Purpose</div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:0%;height:100%;background:linear-gradient(90deg,#9997aa,#c0bdd0);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;">⏰ Dec 2025</div>
-                <div style="font-size:10px;font-weight:600;background:#f5f4f1;color:#9997aa;padding:2px 8px;border-radius:999px;">0% done</div>
-              </div>
-            </div>
-
-            <!-- CARD: University of Toronto -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="toronto" data-col="saved" style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 1px 8px rgba(0,0,0,0.06);" onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 1px 8px rgba(0,0,0,0.06)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#00204E,#003080);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#2E86AB;font-family:'Fraunces',serif;flex-shrink:0;">UofT</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">U of Toronto</div>
-                    <div style="font-size:11px;color:#9997aa;"> Canada</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="font-size:11px;font-weight:600;color:#9997aa;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Documents</div>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;"><span style="color:#9997aa;font-size:13px;">○</span> Transcript</div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;"><span style="color:#9997aa;font-size:13px;">○</span> Statement of Purpose</div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:0%;height:100%;background:linear-gradient(90deg,#9997aa,#c0bdd0);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;">⏰ Nov 2025</div>
-                <div style="font-size:10px;font-weight:600;background:#f5f4f1;color:#9997aa;padding:2px 8px;border-radius:999px;">0% done</div>
-              </div>
-            </div>
-
-          </div>
-        </div><!-- /col-saved -->
-
-        <!-- ─ COL 2: PREPARING ─ -->
-        <div class="kb-col" data-col="preparing" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'preparing')">
+        <!-- ─ COL 1: PLANNING ─ -->
+        <div class="kb-col" data-col="planning" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'Planning')">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#d97706;"></div>
-              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Preparing Docs</span>
-              <span style="font-size:11px;font-weight:600;background:#FFF3E0;color:#d97706;padding:1px 8px;border-radius:999px;" id="count-preparing">2</span>
+              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Planning</span>
+              <span style="font-size:11px;font-weight:600;background:#FFF3E0;color:#d97706;padding:1px 8px;border-radius:999px;" id="count-planning">0</span>
             </div>
-            <div onclick="showToast('+ New card in Preparing')" style="font-size:18px;color:#9997aa;cursor:pointer;padding:2px 6px;border-radius:6px;" onmouseover="this.style.background='rgba(0,0,0,0.05)'" onmouseout="this.style.background=''">+</div>
           </div>
-          <div id="col-preparing" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-
-            <!-- CARD: TU Berlin -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="tuberlin" data-col="preparing" style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 1px 8px rgba(0,0,0,0.06);" onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 1px 8px rgba(0,0,0,0.06)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#003366,#0066CC);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white;font-family:'Fraunces',serif;flex-shrink:0;">TUB</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">TU Berlin</div>
-                    <div style="font-size:11px;color:#9997aa;"> Germany</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="font-size:11px;font-weight:600;color:#9997aa;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Documents</div>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="true"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="text-decoration:line-through;color:#9997aa;">Transcript</span></div>
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="true"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="text-decoration:line-through;color:#9997aa;">Passport Copy</span></div>
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="false"><span style="color:#dc2626;font-size:14px;">✗</span> Recommendation Letter</div>
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="false"><span style="color:#dc2626;font-size:14px;">✗</span> Statement of Purpose</div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:50%;height:100%;background:linear-gradient(90deg,#d97706,#f59e0b);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;">⏰ <strong style="color:#1a9e6e;">Apr 20</strong> · 33 days</div>
-                <div style="font-size:10px;font-weight:600;background:#FFF3E0;color:#d97706;padding:2px 8px;border-radius:999px;">50% done</div>
-              </div>
-            </div>
-
-            <!-- CARD: Peking University -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="pku" data-col="preparing" style="background:white;border:1px solid rgba(0,0,0,0.08);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 1px 8px rgba(0,0,0,0.06);" onmouseover="this.style.boxShadow='0 6px 24px rgba(0,0,0,0.11)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 1px 8px rgba(0,0,0,0.06)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#8B0000,#CC0000);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white;font-family:'Fraunces',serif;flex-shrink:0;">北大</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">Peking University</div>
-                    <div style="font-size:11px;color:#9997aa;"> China</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="font-size:11px;font-weight:600;color:#9997aa;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Documents</div>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="true"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="text-decoration:line-through;color:#9997aa;">Transcript</span></div>
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="true"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="text-decoration:line-through;color:#9997aa;">Passport</span></div>
-                <div class="kb-check" onclick="toggleCheck(this)" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;" data-done="false"><span style="color:#dc2626;font-size:14px;">✗</span> Recommendation Letter</div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:65%;height:100%;background:linear-gradient(90deg,#d97706,#f59e0b);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;">⏰ <strong style="color:#d97706;">Apr 5</strong> · 18 days</div>
-                <div style="font-size:10px;font-weight:600;background:#FFF3E0;color:#d97706;padding:2px 8px;border-radius:999px;">65% done</div>
-              </div>
-            </div>
-
+          <div id="col-planning" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
           </div>
-        </div><!-- /col-preparing -->
+        </div><!-- /col-planning -->
 
-        <!-- ─ COL 3: SUBMITTED ─ -->
-        <div class="kb-col" data-col="submitted" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'submitted')">
+        <!-- ─ COL 2: APPLIED ─ -->
+        <div class="kb-col" data-col="applied" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'Applied')">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#3148E8;"></div>
-              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Submitted</span>
-              <span style="font-size:11px;font-weight:600;background:#eef0fd;color:#3148E8;padding:1px 8px;border-radius:999px;" id="count-submitted">1</span>
+              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Applied</span>
+              <span style="font-size:11px;font-weight:600;background:#eef0fd;color:#3148E8;padding:1px 8px;border-radius:999px;" id="count-applied">0</span>
             </div>
-            <div onclick="showToast('+ New card in Submitted')" style="font-size:18px;color:#9997aa;cursor:pointer;padding:2px 6px;border-radius:6px;" onmouseover="this.style.background='rgba(0,0,0,0.05)'" onmouseout="this.style.background=''">+</div>
           </div>
-          <div id="col-submitted" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-
-            <!-- CARD: Tsinghua University -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="tsinghua" data-col="submitted" style="background:white;border:1.5px solid rgba(49,72,232,0.2);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 2px 12px rgba(49,72,232,0.08);" onmouseover="this.style.boxShadow='0 6px 24px rgba(49,72,232,0.15)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(49,72,232,0.08)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#6600AA,#9900CC);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white;font-family:'Fraunces',serif;flex-shrink:0;">清华</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">Tsinghua Univ.</div>
-                    <div style="font-size:11px;color:#9997aa;"> China</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="background:#eef0fd;border-radius:8px;padding:8px 10px;margin-bottom:12px;font-size:12px;color:#3148E8;font-weight:500;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3148E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;"><polyline points="22 2 15 22 11 13 2 9 22 2"/></svg>Application submitted Feb 28</div>
-              <div style="font-size:11px;font-weight:600;color:#9997aa;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.4px;">Documents</div>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:12px;">
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="color:#9997aa;text-decoration:line-through;">Transcript</span></div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="color:#9997aa;text-decoration:line-through;">Passport</span></div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="color:#9997aa;text-decoration:line-through;">Recommendation Letters</span></div>
-                <div style="display:flex;align-items:center;gap:7px;font-size:12px;"><span style="color:#1a9e6e;font-size:14px;">✓</span> <span style="color:#9997aa;text-decoration:line-through;">Statement of Purpose</span></div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:80%;height:100%;background:linear-gradient(90deg,#3148E8,#7c8fff);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;">⏰ <strong style="color:#dc2626;">Mar 30</strong> · 12 days</div>
-                <div style="font-size:10px;font-weight:600;background:#eef0fd;color:#3148E8;padding:2px 8px;border-radius:999px;">80% done</div>
-              </div>
-            </div>
+          <div id="col-applied" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
 
           </div>
-        </div><!-- /col-submitted -->
+        </div><!-- /col-applied -->
 
-        <!-- ─ COL 4: INTERVIEW ─ -->
-        <div class="kb-col" data-col="interview" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'interview')">
+        <!-- ─ COL 3: INTERVIEW ─ -->
+        <div class="kb-col" data-col="interview" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'Interview')">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#7c3aed;"></div>
-              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Interview Stage</span>
-              <span style="font-size:11px;font-weight:600;background:#f3eeff;color:#7c3aed;padding:1px 8px;border-radius:999px;" id="count-interview">1</span>
+              <span style="font-size:13px;font-weight:700;color:#0f0e17;">Interview</span>
+              <span style="font-size:11px;font-weight:600;background:#f3eeff;color:#7c3aed;padding:1px 8px;border-radius:999px;" id="count-interview">0</span>
             </div>
-            <div onclick="showToast('+ New card in Interview')" style="font-size:18px;color:#9997aa;cursor:pointer;padding:2px 6px;border-radius:6px;" onmouseover="this.style.background='rgba(0,0,0,0.05)'" onmouseout="this.style.background=''">+</div>
           </div>
           <div id="col-interview" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-
-            <!-- CARD: Oxford -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="oxford" data-col="interview" style="background:white;border:1.5px solid rgba(124,58,237,0.2);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 2px 12px rgba(124,58,237,0.08);" onmouseover="this.style.boxShadow='0 6px 24px rgba(124,58,237,0.15)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(124,58,237,0.08)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#002147,#003580);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#B5A267;font-family:'Fraunces',serif;flex-shrink:0;">Ox</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">Univ. of Oxford</div>
-                    <div style="font-size:11px;color:#9997aa;"> United Kingdom</div>
-                  </div>
-                </div>
-                <div onclick="showToast('Card options…')" style="font-size:14px;color:#9997aa;cursor:pointer;padding:2px 5px;border-radius:5px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">⋯</div>
-              </div>
-              <div style="background:linear-gradient(135deg,#f3eeff,#ede8ff);border-radius:8px;padding:8px 10px;margin-bottom:12px;">
-                <div style="font-size:11px;font-weight:700;color:#7c3aed;margin-bottom:2px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:5px;"><path d="M12 1a3 3 0 003 3v7a3 3 0 01-6 0V4a3 3 0 013-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>Interview Scheduled</div>
-                <div style="font-size:12px;color:#57556a;">March 18, 2025 · 10:00 AM GMT</div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px;">
-                <div onclick="showToast('Opening Interview Prep')" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#3148E8;font-weight:500;cursor:pointer;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#3148E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;flex-shrink:0;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Practice with AI Mock Interview →</div>
-                <div onclick="showToast('Opening Oxford question bank…')" style="display:flex;align-items:center;gap:7px;font-size:12px;color:#57556a;cursor:pointer;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> View Oxford interview questions</div>
-              </div>
-              <div style="height:4px;background:#f0eee9;border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="width:90%;height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:2px;"></div></div>
-              <div style="display:flex;align-items:center;justify-content:space-between;">
-                <div style="font-size:11px;color:#9997aa;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#9997aa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:3px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Jan 2026</div>
-                <div style="font-size:10px;font-weight:600;background:#f3eeff;color:#7c3aed;padding:2px 8px;border-radius:999px;">90% done</div>
-              </div>
-            </div>
-
           </div>
         </div><!-- /col-interview -->
 
-        <!-- ─ COL 5: ACCEPTED ─ -->
-        <div class="kb-col" data-col="accepted" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'accepted')">
+        <!-- ─ COL 4: ACCEPTED ─ -->
+        <div class="kb-col" data-col="accepted" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'Accepted')">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#1a9e6e;"></div>
               <span style="font-size:13px;font-weight:700;color:#0f0e17;">Accepted</span>
-              <span style="font-size:11px;font-weight:600;background:#e4f7f0;color:#1a9e6e;padding:1px 8px;border-radius:999px;" id="count-accepted">1</span>
+              <span style="font-size:11px;font-weight:600;background:#e4f7f0;color:#1a9e6e;padding:1px 8px;border-radius:999px;" id="count-accepted">0</span>
             </div>
-            <div onclick="showToast('Add to Accepted')" style="font-size:18px;color:#9997aa;cursor:pointer;padding:2px 6px;border-radius:6px;">+</div>
           </div>
           <div id="col-accepted" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-
-            <!-- CARD: Manchester - Accepted -->
-            <div class="kb-card" draggable="true" ondragstart="dragStart(event)" data-id="manchester" data-col="accepted" style="background:linear-gradient(160deg,#f0fdf7,#e6f9f2);border:1.5px solid rgba(26,158,110,0.25);border-radius:14px;padding:16px;cursor:grab;transition:all 0.2s;box-shadow:0 2px 12px rgba(26,158,110,0.1);" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,158,110,0.18)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(26,158,110,0.1)';this.style.transform=''">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-                <div style="display:flex;align-items:center;gap:9px;">
-                  <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#660099,#9900CC);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white;font-family:'Fraunces',serif;flex-shrink:0;">UoM</div>
-                  <div>
-                    <div style="font-size:13px;font-weight:700;color:#0f0e17;line-height:1.2;">Univ. of Manchester</div>
-                    <div style="font-size:11px;color:#9997aa;"> United Kingdom</div>
-                  </div>
-                </div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a9e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <div style="background:rgba(26,158,110,0.1);border-radius:8px;padding:8px 10px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">
-                <span style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#1a9e6e;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-                <div>
-                  <div style="font-size:12px;font-weight:700;color:#1a9e6e;">Offer Received!</div>
-                  <div style="font-size:11px;color:#57556a;">MSc Computer Science · Sep 2025</div>
-                </div>
-              </div>
-              <div style="display:flex;gap:6px;">
-                <div onclick="showToast('Opening visa checklist')" style="flex:1;text-align:center;font-size:11px;font-weight:600;background:white;border:1px solid rgba(26,158,110,0.3);color:#1a9e6e;padding:7px;border-radius:8px;cursor:pointer;">Visa Steps</div>
-                <div onclick="showToast('Opening accommodation guide')" style="flex:1;text-align:center;font-size:11px;font-weight:600;background:#1a9e6e;color:white;padding:7px;border-radius:8px;cursor:pointer;">Next Steps →</div>
-              </div>
-            </div>
-
           </div>
         </div><!-- /col-accepted -->
 
-        <!-- ─ COL 6: REJECTED ─ -->
-        <div class="kb-col" data-col="rejected" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="event.preventDefault()" ondrop="dropCard(event,'rejected')">
+        <!-- ─ COL 5: REJECTED ─ -->
+        <div class="kb-col" data-col="rejected" style="flex-shrink:0;width:260px;display:flex;flex-direction:column;gap:0;" ondragover="handleDragOver(event)" ondrop="handleDrop(event, 'Rejected')">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px;">
             <div style="display:flex;align-items:center;gap:8px;">
               <div style="width:10px;height:10px;border-radius:50%;background:#dc2626;"></div>
@@ -368,14 +225,9 @@
             </div>
           </div>
           <div id="col-rejected" style="display:flex;flex-direction:column;gap:10px;min-height:80px;padding:4px 2px;border-radius:12px;transition:background 0.2s;">
-            <!-- Empty state -->
-            <div style="border:1.5px dashed rgba(0,0,0,0.1);border-radius:12px;padding:24px;text-align:center;">
-              <div style="margin-bottom:8px;display:flex;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c0bdd0" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-              <div style="font-size:12px;font-weight:600;color:#9997aa;">No rejections yet!</div>
-              <div style="font-size:11px;color:#c0bdd0;margin-top:4px;">Keep going!</div>
-            </div>
           </div>
         </div><!-- /col-rejected -->
+          </div>
 
       </div><!-- /kanban-board -->
 
@@ -406,10 +258,9 @@
       <div>
         <label style="font-size:12px;font-weight:600;color:#57556a;display:block;margin-bottom:6px;">Status</label>
         <select id="status" style="width:100%;padding:10px 14px;border:1.5px solid #E6E8EC;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;color:#0f0e17;background:white;box-sizing:border-box;cursor:pointer;">
-          <option value="Saved">Saved</option>
-          <option value="Preparing">Preparing Docs</option>
-          <option value="Submitted">Submitted</option>
-          <option value="Interview">Interview Stage</option>
+          <option value="Planning">Planning</option>
+          <option value="Applied">Applied</option>
+          <option value="Interview">Interview</option>
           <option value="Accepted">Accepted</option>
           <option value="Rejected">Rejected</option>
         </select>
@@ -429,12 +280,31 @@
     </div>
   </div>
 </div>
+
+<!-- Side Panel for Application Details -->
+<div id="app-detail-panel" style="display:none;position:fixed;top:0;right:0;bottom:0;width:480px;background:white;box-shadow:-4px 0 24px rgba(0,0,0,0.15);z-index:9500;overflow-y:auto;font-family:'DM Sans',sans-serif;">
+  <div style="position:sticky;top:0;background:white;border-bottom:1px solid rgba(0,0,0,0.08);padding:20px 24px;z-index:10;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="font-size:18px;font-weight:700;color:#0f0e17;margin:0;font-family:'Fraunces',serif;">Application Details</h2>
+      <div onclick="closeDetailPanel()" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#9997aa;font-size:20px;" onmouseover="this.style.background='#f5f4f1'" onmouseout="this.style.background=''">&times;</div>
+    </div>
+  </div>
+  
+  <div id="panel-content" style="padding:24px;">
+    <!-- Content will be dynamically loaded -->
+  </div>
+</div>
+
+<!-- Panel Backdrop -->
+<div id="panel-backdrop" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.3);z-index:9400;" onclick="closeDetailPanel()"></div>
+
 <div class="toast" id="toast" style="position:fixed;bottom:28px;right:28px;z-index:9999;background:#0f0e17;color:white;border-radius:14px;padding:14px 20px;font-size:14px;font-weight:500;display:flex;align-items:center;gap:10px;box-shadow:0 8px 32px rgba(0,0,0,0.2);max-width:320px;transform:translateY(80px);opacity:0;transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none;">
   <span id="toast-icon" style="display:inline-flex;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,0.2);align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
   <span id="toast-msg">Done!</span>
 </div>
 
 <script type="module" src="../js/auth-guard.js"></script>
+<script type="module" src="../js/sidebar-nav.js"></script>
 <script type="module" src="../js/user-menu.js"></script>
 <script type="module" src="../js/tracker.js"></script>
 <script type="module" src="../js/document-upload.js"></script>

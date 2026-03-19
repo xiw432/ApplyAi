@@ -4,6 +4,9 @@ async function loadDashboardStats() {
     const user = (await supabase.auth.getUser()).data.user
     if (!user) return
 
+    // Update greeting with real user name
+    await updateGreeting(user)
+
     const { data, error } = await supabase
         .from("applications")
         .select("*")
@@ -26,12 +29,6 @@ async function loadDashboardStats() {
 
     // Calculate statistics
     const totalApplications = apps.length
-    const savedAppCount = apps.filter(a => a.status === "Saved").length
-    const preparingCount = apps.filter(a => a.status === "Preparing").length
-    const submittedCount = apps.filter(a => a.status === "Submitted").length
-    const interviewCount = apps.filter(a => a.status === "Interview").length
-    const acceptedCount = apps.filter(a => a.status === "Accepted").length
-    const rejectedCount = apps.filter(a => a.status === "Rejected").length
 
     // Count urgent deadlines (within 14 days)
     const now = new Date()
@@ -63,8 +60,10 @@ async function loadDashboardStats() {
     if (subtitleEl) {
         if (urgentDeadlines > 0) {
             subtitleEl.innerHTML = `You have <strong style="color:#DC2626;font-weight:700;">${urgentDeadlines} urgent deadline${urgentDeadlines !== 1 ? 's' : ''}</strong> this week — let's get ahead of them.`
+        } else if (totalApplications > 0) {
+            subtitleEl.innerHTML = `All caught up! You have ${totalApplications} active application${totalApplications !== 1 ? 's' : ''}.`
         } else {
-            subtitleEl.innerHTML = `No urgent deadlines right now — great time to prepare your next application!`
+            subtitleEl.innerHTML = `Ready to start your study abroad journey? Add your first university.`
         }
     }
 
@@ -77,6 +76,30 @@ async function loadDashboardStats() {
 
     // Render upcoming deadlines
     renderUpcomingDeadlines(apps)
+}
+
+/**
+ * Update greeting with real user name
+ */
+async function updateGreeting(user) {
+    const greetingEl = document.getElementById("dashboard-greeting")
+    if (!greetingEl) return
+
+    // Get time-based greeting
+    const hour = new Date().getHours()
+    let timeGreeting = "Good morning"
+    if (hour >= 12 && hour < 17) timeGreeting = "Good afternoon"
+    else if (hour >= 17) timeGreeting = "Good evening"
+
+    // Try to get user's name from profile
+    const { data: profile } = await supabase
+        .from("profiles")
+        .select("full_name")
+        .eq("id", user.id)
+        .maybeSingle()
+
+    const userName = profile?.full_name || user.email?.split("@")[0] || "there"
+    greetingEl.textContent = `${timeGreeting}, ${userName} 👋`
 }
 
 // ── Status color mapping ──
@@ -151,7 +174,7 @@ function renderApplicationRows(apps) {
         const bgColor = gradients[hash % gradients.length]
 
         container.insertAdjacentHTML("beforeend", `
-            <div style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr;padding:16px 24px;border-bottom:1px solid #F9FAFB;align-items:center;cursor:pointer;transition:background 0.15s;"
+            <div style="display:grid;grid-template-columns:2.2fr 1fr 1.6fr 1.3fr;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,0.08);align-items:center;cursor:pointer;transition:background 0.15s;"
                  onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''">
                 <div style="display:flex;align-items:center;gap:12px;min-width:0;flex:1;">
                     <div style="width:36px;height:36px;min-width:36px;border-radius:9px;background:${bgColor};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:white;font-family:'Fraunces',serif;">${initials}</div>
@@ -165,7 +188,7 @@ function renderApplicationRows(apps) {
                     <div style="font-size:12.5px;color:#6B7280;">${deadlineStr}</div>
                     ${daysLabel}
                 </div>
-                <div style="font-size:12px;color:#6B7280;font-weight:500;">${app.notes || "—"}</div>
+                <div style="font-size:12px;color:#6B7280;font-weight:500;">${app.notes ? (app.notes.substring(0, 30) + (app.notes.length > 30 ? "..." : "")) : "—"}</div>
             </div>
         `)
     }
@@ -209,7 +232,7 @@ function renderUpcomingDeadlines(apps) {
         }
 
         container.insertAdjacentHTML("beforeend", `
-            <div style="display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid #F9FAFB;cursor:pointer;transition:background 0.15s;"
+            <div style="display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid rgba(0,0,0,0.06);cursor:pointer;transition:background 0.15s;"
                  onmouseover="this.style.background='#FAFAFA'" onmouseout="this.style.background=''">
                 <div style="min-width:38px;text-align:center;">
                     <div style="font-size:20px;font-weight:800;color:${urgencyColor};">${day}</div>

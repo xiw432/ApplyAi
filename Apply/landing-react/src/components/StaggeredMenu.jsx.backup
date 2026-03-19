@@ -1,0 +1,17 @@
+﻿import React from 'react';
+import './StaggeredMenu.css';
+
+const StaggeredMenu = (props) => {
+  return (
+    <div className="staggered-menu-wrapper">
+      <header className="staggered-menu-header">
+        <div className="sm-logo"></div>
+        <button className="sm-toggle" type="button">
+          <span>Menu</span>
+        </button>
+      </header>
+    </div>
+  );
+};
+
+export default StaggeredMenu;

@@ -486,8 +486,8 @@
           </svg>
         </div>
         <span style="font-size:13.5px;font-weight:500;flex:1;">Universities</span>
-        <span
-          style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">12</span>
+        <span id="sidebar-universities-count"
+          style="font-size:10px;font-weight:700;background:rgba(37,99,235,0.3);color:#93C5FD;padding:2px 7px;border-radius:999px;">0</span>
       </a>
       <a href="tracker.html" id="snav-tracker" class="snav-item"
         style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
@@ -504,8 +504,8 @@
           </svg>
         </div>
         <span style="font-size:13.5px;font-weight:500;flex:1;">Applications</span>
-        <span
-          style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">3</span>
+        <span id="sidebar-applications-count"
+          style="font-size:10px;font-weight:700;background:rgba(234,179,8,0.22);color:#FDE047;padding:2px 7px;border-radius:999px;">0</span>
       </a>
       <a href="calendar.html" id="snav-calendar" class="snav-item"
         style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
@@ -522,8 +522,8 @@
           </svg>
         </div>
         <span style="font-size:13.5px;font-weight:500;flex:1;">Calendar</span>
-        <span
-          style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">2</span>
+        <span id="sidebar-calendar-count"
+          style="font-size:10px;font-weight:700;background:rgba(220,38,38,0.25);color:#FCA5A5;padding:2px 7px;border-radius:999px;">0</span>
       </a>
       <a href="internship.html" id="snav-internships" class="snav-item"
         style="display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;margin-bottom:2px;color:rgba(255,255,255,0.5);text-decoration:none;"
@@ -595,9 +595,8 @@
           style="width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;">
           S</div>
         <div style="flex:1;overflow:hidden;">
-          <div style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Shivang Gupta</div>
-          <div style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Masters &middot;
-            China</div>
+          <div id="sidebar-user-name" style="font-size:13px;font-weight:600;color:#F1F5F9;white-space:nowrap;">Loading…</div>
+          <div id="sidebar-user-subtitle" style="font-size:11px;color:rgba(255,255,255,0.35);white-space:nowrap;margin-top:1px;">Loading…</div>
         </div>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
@@ -639,7 +638,7 @@
           </div>
           <!-- Avatar -->
           <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px;">
-            <div class="g-avatar">S</div>
+            <div class="g-avatar">U</div>
             <div>
               <div style="font-size:14px;font-weight:600;color:#0F172A;margin-bottom:4px;">Profile Picture</div>
               <div style="font-size:12.5px;color:#94A3B8;margin-bottom:10px;">JPG, PNG up to 5MB</div>
@@ -656,9 +655,8 @@
           </div>
           <!-- Fields -->
           <div class="g-fields">
-            <div><label class="g-label">Full Name</label><input type="text" value="Shivang Gupta" class="g-input"></div>
-            <div><label class="g-label">Email Address</label><input type="email" value="shivang@example.com"
-                class="g-input"></div>
+            <div><label class="g-label">Full Name</label><input type="text" value="" placeholder="Enter your full name" class="g-input"></div>
+            <div><label class="g-label">Email Address</label><input type="email" value="" placeholder="Loading..." class="g-input"></div>
             <div><label class="g-label">Country of Origin</label>
               <div class="g-sel-wrap"><select class="g-select">
                   <option>India</option>
@@ -689,7 +687,7 @@
                 </svg></div>
             </div>
           </div>
-          <button onclick="showToast('Profile saved successfully!')" class="g-btn g-btn-purple">
+          <button onclick="saveProfile()" class="g-btn g-btn-purple">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
               stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12" />
@@ -769,7 +767,7 @@
             </div>
           </div>
           <div style="margin-top:20px;">
-            <button onclick="showToast('AI preferences saved!')" class="g-btn g-btn-blue">
+            <button onclick="saveAIPreferences()" class="g-btn g-btn-blue">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
@@ -849,7 +847,7 @@
                 </svg></div>
             </div>
           </div>
-          <button onclick="showToast('Preferences saved!')" class="g-btn g-btn-green">
+          <button onclick="saveApplicationPreferences()" class="g-btn g-btn-green">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"
               stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12" />
@@ -1049,8 +1047,10 @@
   </div>
 
   <script type="module" src="../js/auth-guard.js"></script>
+  <script type="module" src="../js/sidebar-nav.js"></script>
   <script type="module" src="../js/user-menu.js"></script>
-<script src="../js/app.js"></script>
+  <script type="module" src="../js/settings.js"></script>
+  <script src="../js/app.js"></script>
 </body>
 
 </html>

@@ -1,4 +1,34 @@
 import { supabase } from "./supabase.js"
+import { initPageHeader, getUpcomingDeadlinesCount } from "./page-header.js"
+
+// Current calendar state
+let currentYear = new Date().getFullYear()
+let currentMonth = new Date().getMonth()
+let currentView = "week" // day, week, month
+
+// ── Initialize page ──
+async function init() {
+    // Initialize page header with dynamic subtitle
+    await initPageHeader({
+        pageTitle: "Calendar",
+        pageCategory: "Schedule",
+        getSubtitle: async (user) => {
+            const count = await getUpcomingDeadlinesCount()
+            if (count === 0) {
+                return "No upcoming deadlines"
+            }
+            if (count === 1) {
+                return "1 upcoming deadline"
+            }
+            return `${count} upcoming deadlines`
+        }
+    })
+
+    // Load deadlines and render calendar
+    await loadDeadlines()
+    renderMiniCalendar()
+    renderMainCalendar()
+}
 
 // ── Load deadlines from Supabase ──
 async function loadDeadlines() {
@@ -130,10 +160,148 @@ function updateDeadlineCount(apps) {
 
 // Expose globally
 window.loadDeadlines = loadDeadlines
+window.calNav = calNav
+window.goToday = goToday
+window.setCalView = setCalView
+window.openEventModal = openEventModal
+
+// Calendar navigation functions
+function calNav(direction) {
+    currentMonth += direction
+    if (currentMonth > 11) {
+        currentMonth = 0
+        currentYear++
+    } else if (currentMonth < 0) {
+        currentMonth = 11
+        currentYear--
+    }
+    renderMiniCalendar()
+    renderMainCalendar()
+}
+
+function goToday() {
+    const now = new Date()
+    currentYear = now.getFullYear()
+    currentMonth = now.getMonth()
+    renderMiniCalendar()
+    renderMainCalendar()
+}
+
+function setCalView(view) {
+    currentView = view
+    // Update button styles
+    const buttons = {
+        day: document.getElementById("vbtn-day"),
+        week: document.getElementById("vbtn-week"),
+        month: document.getElementById("vbtn-month")
+    }
+    
+    for (const [key, btn] of Object.entries(buttons)) {
+        if (btn) {
+            if (key === view) {
+                btn.style.background = "#111"
+                btn.style.color = "white"
+                btn.style.fontWeight = "600"
+            } else {
+                btn.style.background = "transparent"
+                btn.style.color = "#777"
+                btn.style.fontWeight = "500"
+            }
+        }
+    }
+    
+    renderMainCalendar()
+}
+
+function openEventModal() {
+    window.showToast("Custom events coming soon")
+}
+
+// Render mini calendar
+function renderMiniCalendar() {
+    const monthLabel = document.getElementById("mini-month-label")
+    const grid = document.getElementById("mini-cal-grid")
+    
+    if (!grid) return
+    
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
+    if (monthLabel) {
+        monthLabel.textContent = `${months[currentMonth]} ${currentYear}`
+    }
+    
+    // Update main calendar month label too
+    const mainLabel = document.getElementById("cal-month-label")
+    if (mainLabel) {
+        mainLabel.textContent = `${months[currentMonth]} ${currentYear}`
+    }
+    
+    // Generate calendar grid
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay()
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate()
+    const today = new Date()
+    const isCurrentMonth = today.getFullYear() === currentYear && today.getMonth() === currentMonth
+    const todayDate = today.getDate()
+    
+    grid.innerHTML = ""
+    
+    // Add day headers
+    const dayHeaders = ["S", "M", "T", "W", "T", "F", "S"]
+    dayHeaders.forEach(day => {
+        const header = document.createElement("div")
+        header.style.cssText = "text-align:center;font-size:10px;font-weight:600;color:#999;padding:4px 0;"
+        header.textContent = day
+        grid.appendChild(header)
+    })
+    
+    // Add empty cells for days before month starts
+    for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div")
+        grid.appendChild(empty)
+    }
+    
+    // Add day cells
+    for (let day = 1; day <= daysInMonth; day++) {
+        const cell = document.createElement("div")
+        const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+        cell.setAttribute("data-date", dateStr)
+        
+        const isToday = isCurrentMonth && day === todayDate
+        
+        cell.style.cssText = `
+            text-align:center;
+            font-size:11px;
+            padding:6px 4px;
+            cursor:pointer;
+            border-radius:6px;
+            transition:background 0.15s;
+            ${isToday ? 'background:#111;color:white;font-weight:700;' : 'color:#333;'}
+        `
+        
+        if (!isToday) {
+            cell.onmouseover = () => cell.style.background = "#f0f0f0"
+            cell.onmouseout = () => cell.style.background = ""
+        }
+        
+        cell.textContent = day
+        grid.appendChild(cell)
+    }
+}
+
+// Render main calendar view
+function renderMainCalendar() {
+    // For now, just update the month label
+    // Full calendar rendering would go here
+    const mainLabel = document.getElementById("cal-month-label")
+    if (mainLabel) {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        mainLabel.textContent = `${months[currentMonth]} ${currentYear}`
+    }
+}
 
 // Auto-load on page ready
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", loadDeadlines)
+    document.addEventListener("DOMContentLoaded", init)
 } else {
-    loadDeadlines()
+    init()
 }

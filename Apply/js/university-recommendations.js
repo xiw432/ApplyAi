@@ -158,7 +158,7 @@ function parseBudget(budgetStr) {
 function showNoRecommendations(container) {
   container.style.cssText = "padding:32px 22px;text-align:center;";
   container.innerHTML = `
-    <div style="font-size:40px;margin-bottom:12px;">🎓</div>
+    <img src="../assets/academic-cap.png" alt="Academic Cap" style="width:80px;height:80px;margin:0 auto 12px;opacity:0.6;" />
     <div style="font-size:13px;color:#9CA3AF;">No recommendations available yet.</div>
     <div style="font-size:12px;color:#9CA3AF;margin-top:4px;">Complete your profile to get personalized matches.</div>
   `;

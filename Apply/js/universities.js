@@ -1,4 +1,99 @@
 import { supabase } from "./supabase.js";
+import { initPageHeader, getSavedUniversitiesCount } from "./page-header.js";
+
+// ── Load topbar profile badge ──
+async function loadTopbarProfile() {
+    const nameEl = document.getElementById("topbar-user-name");
+    const countryEl = document.getElementById("topbar-user-country");
+    const degreeEl = document.getElementById("topbar-user-degree");
+    const avatarEl = document.getElementById("topbar-user-avatar");
+
+    if (!nameEl || !countryEl || !degreeEl) return;
+
+    const user = (await supabase.auth.getUser()).data.user;
+    if (!user) {
+        nameEl.textContent = "Guest";
+        countryEl.textContent = "--";
+        degreeEl.textContent = "--";
+        if (avatarEl) avatarEl.textContent = "G";
+        return;
+    }
+
+    // Fetch profile data
+    const { data: profile } = await supabase
+        .from("profiles")
+        .select("name, target_country, degree_level")
+        .eq("id", user.id)
+        .maybeSingle();
+
+    // Display name
+    const displayName = profile?.name || user.email?.split('@')[0] || "User";
+    nameEl.textContent = displayName.split(' ')[0]; // First name only
+
+    // Display country (abbreviated)
+    const country = profile?.target_country || "--";
+    const countryAbbr = getCountryAbbreviation(country);
+    countryEl.textContent = countryAbbr;
+
+    // Display degree (abbreviated)
+    const degree = profile?.degree_level || "--";
+    const degreeAbbr = getDegreeAbbreviation(degree);
+    degreeEl.textContent = degreeAbbr;
+
+    // Update avatar initial
+    if (avatarEl) {
+        const initial = displayName.charAt(0).toUpperCase();
+        avatarEl.textContent = initial;
+    }
+
+    // Update "My List" count
+    const savedCount = await getSavedUniversitiesCount();
+    const myListCountEl = document.getElementById("my-list-count");
+    if (myListCountEl) {
+        myListCountEl.textContent = savedCount;
+    }
+}
+
+// ── Helper: Get country abbreviation ──
+function getCountryAbbreviation(country) {
+    const abbr = {
+        "Germany": "DE",
+        "USA": "US",
+        "United States": "US",
+        "UK": "UK",
+        "United Kingdom": "UK",
+        "Canada": "CA",
+        "Australia": "AU",
+        "China": "CN",
+        "Netherlands": "NL",
+        "Sweden": "SE",
+        "India": "IN",
+        "France": "FR",
+        "Spain": "ES",
+        "Italy": "IT",
+        "Japan": "JP",
+        "South Korea": "KR",
+        "Singapore": "SG",
+        "Switzerland": "CH",
+        "Austria": "AT",
+        "Belgium": "BE",
+        "Denmark": "DK",
+        "Norway": "NO",
+        "Finland": "FI"
+    };
+    return abbr[country] || country.substring(0, 2).toUpperCase();
+}
+
+// ── Helper: Get degree abbreviation ──
+function getDegreeAbbreviation(degree) {
+    if (!degree || degree === "--") return "--";
+    if (degree.includes("Masters") || degree.includes("MSc") || degree.includes("MA")) return "MS";
+    if (degree.includes("Bachelor")) return "BS";
+    if (degree.includes("PhD") || degree.includes("Doctorate")) return "PhD";
+    if (degree.includes("MBA")) return "MBA";
+    if (degree.includes("Diploma")) return "DIP";
+    return degree.substring(0, 3).toUpperCase();
+}
 
 /**
  * Load universities from the Supabase `universities` table
@@ -248,3 +343,33 @@ window.debouncedFilter = debouncedFilter;
 
 // Auto-load on page load
 loadUniversities();
+
+
+// Import page header utilities
+import { initPageHeader, getSavedUniversitiesCount } from "./page-header.js"
+
+// Initialize page
+async function init() {
+    // Load topbar profile badge
+    await loadTopbarProfile()
+
+    // Initialize page header with dynamic subtitle
+    await initPageHeader({
+        pageTitle: "University Explorer",
+        pageCategory: "Explore",
+        getSubtitle: async (user) => {
+            const savedCount = await getSavedUniversitiesCount()
+            if (savedCount > 0) {
+                return `${savedCount} universit${savedCount !== 1 ? 'ies' : 'y'} saved`
+            }
+            return "Discover and save universities worldwide"
+        }
+    })
+}
+
+// Auto-load on page ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init)
+} else {
+    init()
+}

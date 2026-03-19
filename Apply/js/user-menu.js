@@ -8,23 +8,58 @@ async function loadCurrentUser() {
 
     // Sidebar user name
     const nameEl = document.getElementById("sidebar-user-name");
-    // Sidebar user email
+    // Sidebar user subtitle (degree · country)
+    const subtitleEl = document.getElementById("sidebar-user-subtitle");
+    // Sidebar user email (in dropdown)
     const emailEl = document.getElementById("sidebar-user-email");
     // Avatar initials (sidebar + topbar)
     const avatarEls = document.querySelectorAll(".user-avatar-initial");
 
     if (error || !user) {
         if (nameEl) nameEl.textContent = "Guest";
+        if (subtitleEl) subtitleEl.textContent = "Not signed in";
         if (emailEl) emailEl.textContent = "Not signed in";
         return;
     }
 
     const email = user.email || "";
-    const displayName = user.user_metadata?.full_name || email.split("@")[0] || "User";
+    let displayName = user.user_metadata?.full_name || email.split("@")[0] || "User";
+    
+    // Fetch profile data for degree and target_country
+    const { data: profile } = await supabase
+        .from("profiles")
+        .select("name, degree, target_country")
+        .eq("user_id", user.id)
+        .maybeSingle();
+
+    // Use profile name if available
+    if (profile?.name) {
+        displayName = profile.name;
+    }
+
     const initial = displayName.charAt(0).toUpperCase();
 
     if (nameEl) nameEl.textContent = displayName;
+    
+    // Update email in dropdown
     if (emailEl) emailEl.textContent = email;
+    
+    // Build subtitle from profile data
+    if (subtitleEl) {
+        const degree = profile?.degree || "";
+        const country = profile?.target_country || "";
+        
+        if (degree && country) {
+            subtitleEl.textContent = `${degree} · ${country}`;
+        } else if (degree) {
+            subtitleEl.textContent = degree;
+        } else if (country) {
+            subtitleEl.textContent = country;
+        } else {
+            subtitleEl.textContent = email;
+        }
+    }
+    
     avatarEls.forEach((el) => { el.textContent = initial; });
 }
 
