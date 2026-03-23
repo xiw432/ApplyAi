@@ -4,13 +4,21 @@ const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Trigger entrance animation after component mounts
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
 
     return () => clearTimeout(timer);
   }, []);
+
+  const socialAvatars = [
+    { initials: 'AK', gradient: 'linear-gradient(135deg, #2563eb, #7c3aed)' },
+    { initials: 'SM', gradient: 'linear-gradient(135deg, #10b981, #00C9B8)' },
+    { initials: 'JO', gradient: 'linear-gradient(135deg, #7c3aed, #EC4899)' },
+    { initials: 'LW', gradient: 'linear-gradient(135deg, #F97316, #EF4444)' },
+    { initials: 'RK', gradient: 'linear-gradient(135deg, #2563eb, #3b82f6)' },
+    { initials: 'NP', gradient: 'linear-gradient(135deg, #10b981, #2563eb)' },
+  ];
 
   return (
     <section id="home" className="hero-section">
@@ -62,6 +70,34 @@ const HeroSection = () => {
               <div className="stat-number">AI</div>
               <div className="stat-label">Powered</div>
             </div>
+          </div>
+
+          {/* Social Proof Bar */}
+          <div className={`hero-social-proof ${isLoaded ? 'hero-social-proof--visible' : ''}`}>
+            <div className="hero-social-proof-separator"></div>
+            <div className="hero-social-proof-content">
+              <div className="hero-social-proof-avatars">
+                {socialAvatars.map((a, i) => (
+                  <div
+                    key={i}
+                    className="hero-social-proof-avatar"
+                    style={{ background: a.gradient }}
+                  >
+                    {a.initials}
+                  </div>
+                ))}
+              </div>
+              <span className="hero-social-proof-text">
+                10,000+ students from 120 countries trust ApplyAI
+              </span>
+            </div>
+          </div>
+
+          {/* Mobile-only stats strip (replaces hidden hero-preview on mobile) */}
+          <div className="mobile-stats-strip">
+            <div className="mobile-stat-pill">94% Acceptance</div>
+            <div className="mobile-stat-pill">2,400+ Students</div>
+            <div className="mobile-stat-pill">40+ Countries</div>
           </div>
         </div>
       </div>

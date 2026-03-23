@@ -15,13 +15,20 @@ const UniversitiesSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAnimating(true);
-      
+      setIsAnimating(true); // triggers fade-out class
+
       setTimeout(() => {
-        setCurrentNameIndex((prevIndex) => (prevIndex + 1) % universityNames.length);
-        setIsAnimating(false);
-      }, 250); // Half of the transition duration
-    }, 3000); // Change every 3 seconds
+        setCurrentNameIndex(
+          (prevIndex) => (prevIndex + 1) % universityNames.length
+        );
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setIsAnimating(false); // triggers fade-in class
+          });
+        });
+      }, 500); // matches the CSS transition duration
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [universityNames.length]);
@@ -96,7 +103,7 @@ const UniversitiesSection = () => {
         <div className="universities-grid">
           {universities.map((university, index) => (
             <div key={index} className="university-card">
-              <div 
+              <div
                 className="university-logo"
                 style={{ backgroundColor: university.color }}
               >
