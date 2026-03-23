@@ -28,12 +28,12 @@ const HeroSection = () => {
               Discover Global <span className="hero-gradient"><em>Opportunities</em></span>
             </span>
             <span className="hero-headline-line">
-               for Your Future
+              for Your Future
             </span>
           </h1>
 
           <p className={`hero-subtext ${isLoaded ? 'hero-subtext--visible' : ''}`}>
-            Find scholarships, universities, and expert guidance—all in one platform, powered by AI. 
+            Find scholarships, universities, and expert guidance—all in one platform, powered by AI.
             Stop searching scattered websites. Start applying with confidence.
           </p>
 
@@ -48,24 +48,24 @@ const HeroSection = () => {
           </div>
 
           <div className={`hero-stats ${isLoaded ? 'hero-stats--visible' : ''}`}>
-            <div className="stat-item" style={{ animationDelay: '0.8s' }}>
+            <div className="stat-item">
               <div className="stat-number">500+</div>
               <div className="stat-label">Universities</div>
             </div>
             <div className="stat-divider"></div>
-            <div className="stat-item" style={{ animationDelay: '0.9s' }}>
+            <div className="stat-item">
               <div className="stat-number">60+</div>
               <div className="stat-label">Countries</div>
             </div>
             <div className="stat-divider"></div>
-            <div className="stat-item" style={{ animationDelay: '1.0s' }}>
+            <div className="stat-item">
               <div className="stat-number">AI</div>
               <div className="stat-label">Powered</div>
             </div>
           </div>
         </div>
       </div>
-      
+
       {/* Premium spotlight effect */}
       <div className="hero-spotlight"></div>
     </section>
