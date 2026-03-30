@@ -2,7 +2,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const mainLinks = [
-    { label: 'Home', href: '#' },
+    { label: 'Home', href: '#home' },
     { label: 'Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Universities', href: '/Dashboard/university.html' }
@@ -22,9 +22,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Top Section */}
         <div className="footer-top">
-          {/* Brand */}
           <div className="footer-brand">
             <div className="footer-logo">
               <div className="footer-logo-icon">
@@ -40,7 +38,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation Links */}
           <div className="footer-links-group">
             <div className="footer-links-column">
               <h4 className="footer-links-title">Product</h4>
@@ -83,10 +80,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="footer-divider"></div>
 
-        {/* Bottom Section */}
         <div className="footer-bottom">
           <p className="footer-copyright">
             © {currentYear} ApplyAI. All rights reserved.

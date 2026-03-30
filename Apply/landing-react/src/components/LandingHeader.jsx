@@ -9,14 +9,14 @@ const LandingHeader = () => {
       link: '#features'
     },
     { 
-      label: 'About', 
-      ariaLabel: 'About Us',
-      link: '#about'
+      label: 'How It Works', 
+      ariaLabel: 'See how ApplyAI works',
+      link: '#how-it-works'
     },
     { 
-      label: 'Pricing', 
-      ariaLabel: 'View Pricing',
-      link: '#pricing'
+      label: 'AI Advisor', 
+      ariaLabel: 'Preview the AI advisor',
+      link: '#ai-advisor'
     },
     { 
       label: 'Community', 
@@ -31,8 +31,8 @@ const LandingHeader = () => {
   ];
 
   const socialItems = [
-    { label: 'Login', link: '/auth/login.html' },
-    { label: 'Dashboard', link: '/Dashboard/dashboard.html' }
+    { label: 'Login', link: '/auth/login.html', external: false },
+    { label: 'Dashboard', link: '/Dashboard/dashboard.html', external: false }
   ];
 
   return (

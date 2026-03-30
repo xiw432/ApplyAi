@@ -1,0 +1,9 @@
+{
+  "name": "applyai-root",
+  "private": true,
+  "scripts": {
+    "build": "npm install --prefix landing-react && npm --prefix landing-react run build",
+    "dev": "npm --prefix landing-react run dev",
+    "lint": "npm --prefix landing-react run lint"
+  }
+}

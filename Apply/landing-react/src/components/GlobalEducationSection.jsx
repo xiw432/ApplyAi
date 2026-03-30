@@ -9,19 +9,19 @@ const GlobalEducationSection = () => {
           <p className="global-education-subtext">
             Join thousands of students already discovering scholarships, tracking deadlines, and applying with confidence.
           </p>
-          
+
           <div className="global-education-buttons">
-            <button 
-              className="btn-global-primary" 
-              onClick={() => window.location.href = '/auth/signup.html'}
+            <button
+              className="btn-global-primary"
+              onClick={() => { window.location.href = '/auth/signup.html'; }}
             >
-              Get Started Free →
+              Get Started Free
             </button>
-            <button 
+            <button
               className="btn-global-secondary"
-              onClick={() => window.location.href = '/Dashboard/university.html'}
+              onClick={() => { window.location.href = '/Dashboard/university.html'; }}
             >
-              Explore Scholarships
+              Explore Universities
             </button>
           </div>
         </div>

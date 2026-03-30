@@ -41,12 +41,12 @@ const HeroSection = () => {
           </h1>
 
           <p className={`hero-subtext ${isLoaded ? 'hero-subtext--visible' : ''}`}>
-            Find scholarships, universities, and expert guidance—all in one platform, powered by AI.
+            Find scholarships, universities, and expert guidance all in one platform, powered by AI.
             Stop searching scattered websites. Start applying with confidence.
           </p>
 
           <div className={`hero-cta ${isLoaded ? 'hero-cta--visible' : ''}`}>
-            <button className="btn-primary btn-glass" onClick={() => window.location.href = '/auth/signup.html'}>
+            <button className="btn-primary btn-glass" onClick={() => { window.location.href = '/auth/signup.html'; }}>
               <span>Get Started</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -72,7 +72,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Social Proof Bar */}
           <div className={`hero-social-proof ${isLoaded ? 'hero-social-proof--visible' : ''}`}>
             <div className="hero-social-proof-separator"></div>
             <div className="hero-social-proof-content">
@@ -93,7 +92,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Mobile-only stats strip (replaces hidden hero-preview on mobile) */}
           <div className="mobile-stats-strip">
             <div className="mobile-stat-pill">94% Acceptance</div>
             <div className="mobile-stat-pill">2,400+ Students</div>
@@ -102,7 +100,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Premium spotlight effect */}
       <div className="hero-spotlight"></div>
     </section>
   );

@@ -305,7 +305,14 @@ const StaggeredMenu = ({
               <ul className="sm-socials-list">
                 {socialItems.map((s, i) => (
                   <li key={s.label + i} className="sm-socials-item">
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">{s.label}</a>
+                    <a
+                      href={s.link}
+                      target={s.external ? '_blank' : undefined}
+                      rel={s.external ? 'noopener noreferrer' : undefined}
+                      className="sm-socials-link"
+                    >
+                      {s.label}
+                    </a>
                   </li>
                 ))}
               </ul>
